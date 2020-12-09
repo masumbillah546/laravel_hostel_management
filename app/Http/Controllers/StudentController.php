@@ -87,7 +87,7 @@ class StudentController extends Controller
      public function seat_aloc()
     {   $st_info = DB::table('studentinfo')->get();
        $rooms= Room::all();
-       return view('backend.pages.setup.seatalocation', compact('rooms','st_info'));
+       return view('backend.admin.setup.seatalocation', compact('rooms','st_info'));
     }
 
     public function seat_aloc_store(Request $request)

@@ -11,7 +11,7 @@ class RoomController extends Controller
     {
     	$datas = Room::all();
     	$count =$datas->count();
-        return view('backend.pages.setup.room', compact('datas'));
+        return view('backend.admin.setup.room', compact('datas'));
     }
 
         public function add(Request $request)

@@ -59,7 +59,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img alt="HMS" class="pull-left" src="{{ asset('home.png') }}" width="40"><a class="navbar-brand titlehms" href="">Hostel Management System</a>
+            <img alt="HMS" class="pull-left" src="{{ asset('home.png') }}" width="40"><a class="navbar-brand titlehms" href="#">Hostel Management System</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -98,13 +98,13 @@
                         <a href="#"><i class="fa fa-file-text fa-fw"></i>Attendence<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">Add Attendence</a>
+                                <a href="#">Add Attendence</a>
                             </li>
                             <li>
-                                <a href="">Attendence List View</a>
+                                <a href="#">Attendence List View</a>
                             </li>
                             <li>
-                                <a href="">Attendence View</a>
+                                <a href="#">Attendence View</a>
                             </li>
 
                         </ul>
@@ -113,10 +113,10 @@
                         <a href="#"><i class="fa fa-maxcdn fa-fw"></i>Meal Manage<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">Add New</a>
+                                <a href="#">Add New</a>
                             </li>
                             <li>
-                                <a href="">List View</a>
+                                <a href="#">List View</a>
                             </li>
 
 
@@ -126,10 +126,10 @@
                         <a href="#"><i class="fa fa-money fa-fw"></i>Cost Manage<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">Add New</a>
+                                <a href="#">Add New</a>
                             </li>
                             <li>
-                                <a href="">List View</a>
+                                <a href="#">List View</a>
                             </li>
 
 
@@ -142,11 +142,11 @@
                                 <a href="/admin/admission">Admission</a>
                             </li>
                             <li>
-                                <a href="">Student List</a>
+                                <a href="#">Student List</a>
                             </li>
 
                             <li>
-                                <a href="">Deposit</a>
+                                <a href="#">Deposit</a>
                             </li>
                             <li>
                                 <a href="/seatalocation">Seat Alocation</a>
@@ -158,14 +158,14 @@
                         <a href="#"><i class="fa fa-money fa-fw"></i>Students Payment<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">Add</a>
+                                <a href="#">Add</a>
                             </li>
                             <li>
-                                <a href="">Approval List</a>
+                                <a href="#">Approval List</a>
                             </li>
 
                             <li>
-                                <a href="">View</a>
+                                <a href="#">View</a>
                             </li>
 
                         </ul>
@@ -175,17 +175,17 @@
                         <a href="#"><i class="fa fa-users fa-fw"></i>Employee Manage<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">Add New</a>
+                                <a href="#">Add New</a>
                             </li>
                             <li>
-                                <a href="">List view</a>
+                                <a href="#">List view</a>
                             </li>
 
                             <li>
-                                <a href="">Salary Add</a>
+                                <a href="#">Salary Add</a>
                             </li>
                             <li>
-                                <a href="">Salary View</a>
+                                <a href="#">Salary View</a>
                             </li>
 
                         </ul>
@@ -194,10 +194,10 @@
                         <a href="#"><i class="fa fa-dollar fa-fw"></i>Vendor Payment<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">Add New</a>
+                                <a href="#">Add New</a>
                             </li>
                             <li>
-                                <a href="">List View</a>
+                                <a href="#">List View</a>
                             </li>
 
                         </ul>
@@ -207,10 +207,10 @@
                         <a href="#"><i class="fa  fa-file-text fa-fw"></i>Bill Manage<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">Add New</a>
+                                <a href="#">Add New</a>
                             </li>
                             <li>
-                                <a href="">List View</a>
+                                <a href="#">List View</a>
                             </li>
 
 
@@ -220,7 +220,7 @@
                         <a href="#"><i class="fa fa-list-alt fa-fw"></i>Notice Board<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">Notice Add/List</a>
+                                <a href="#">Notice Add/List</a>
                             </li>
 
 
@@ -232,7 +232,7 @@
                         <a href="#"><i class="fa fa-cog fa-fw"></i>Setting<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">System Admin User</a>
+                                <a href="#">System Admin User</a>
                             </li>
 
 
@@ -243,16 +243,16 @@
                         <a href="#"><i class="fa fa-gears fa-fw"></i>Setup<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">Fees</a>
+                                <a href="#">Fees</a>
                             </li>
                             <li>
-                                <a href="">Meal Rate</a>
+                                <a href="#">Meal Rate</a>
                             </li>
                             <li>
-                                <a href="">Time Set</a>
+                                <a href="#">Time Set</a>
                             </li>
                             <li>
-                                <a href="">Blocks</a>
+                                <a href="#">Blocks</a>
                             </li>
                             <li>
                                 <a href="/admin/room">Rooms</a>

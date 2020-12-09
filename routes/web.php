@@ -16,7 +16,7 @@ Route::get('/admin','Dashboard@index');
 Route::get('/admin/admission', function () {
     //return view('welcome');
     
-    return view('backend.pages.admission');
+    return view('backend.admin.students.admission');
 });
 
 Route::get('/admin/room', 'RoomController@index');
@@ -27,13 +27,13 @@ Route::post('/room/add', 'RoomController@add');
 Route::get('/student', function () {
     //return view('welcome');
     
-    return view('backend.stpages.st_dashboard');
+    return view('backend.students.st_dashboard');
 });
 
 Route::get('/employee', function () {
     //return view('welcome');
     
-    return view('backend.empages.em_dashboard');
+    return view('backend.employee.em_dashboard');
 });
 
 Route::get('/home', function () {
