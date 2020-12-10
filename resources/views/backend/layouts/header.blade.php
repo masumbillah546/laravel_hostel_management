@@ -177,17 +177,17 @@
                         <a href="#"><i class="fa fa-users fa-fw"></i>Employee Manage<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Add New</a>
+                                <a href="/employee/add">Add New</a>
                             </li>
                             <li>
-                                <a href="#">List view</a>
+                                <a href="/employee/list">List view</a>
                             </li>
 
                             <li>
-                                <a href="#">Salary Add</a>
+                                <a href="/employee/addsalary">Salary Add</a>
                             </li>
                             <li>
-                                <a href="#">Salary View</a>
+                                <a href="/employee/viewsalary">Salary View</a>
                             </li>
 
                         </ul>
@@ -196,10 +196,10 @@
                         <a href="#"><i class="fa fa-dollar fa-fw"></i>Vendor Payment<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Add New</a>
+                                <a href="/vandor/add">Add New</a>
                             </li>
                             <li>
-                                <a href="#">List View</a>
+                                <a href="/vandor/view">List View</a>
                             </li>
 
                         </ul>
@@ -209,10 +209,10 @@
                         <a href="#"><i class="fa  fa-file-text fa-fw"></i>Bill Manage<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Add New</a>
+                                <a href="/bill/add">Add New</a>
                             </li>
                             <li>
-                                <a href="#">List View</a>
+                                <a href="/bill/view">List View</a>
                             </li>
 
 
@@ -234,7 +234,7 @@
                         <a href="#"><i class="fa fa-cog fa-fw"></i>Setting<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">System Admin User</a>
+                                <a href="/setting/adduser">System Admin User</a>
                             </li>
 
 

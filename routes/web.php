@@ -45,6 +45,23 @@ Route::view('/payment/view','backend.admin.payment.view');
 Route::get('/notice/add','Notice@create');
 Route::post('/notice','Notice@store');
 
+//Employee
+Route::view('/employee/add','backend.admin.employee.add');
+Route::view('/employee/list','backend.admin.employee.list');
+Route::view('/employee/addsalary','backend.admin.employee.addsalary');
+Route::view('/employee/viewsalary','backend.admin.employee.viewsalary');
+
+//Vandor
+Route::view('/vandor/add','backend.admin.vandor.add');
+Route::view('/vandor/view','backend.admin.vandor.view');
+
+//Bill
+Route::view('/bill/add','backend.admin.bill.add');
+Route::view('/bill/view','backend.admin.bill.view');
+
+//Setting
+Route::view('/setting/adduser','backend.admin.setting.adduser');
+
 
 Route::get('/admin/room', 'RoomController@index');
 Route::post('/room/add', 'RoomController@add');
