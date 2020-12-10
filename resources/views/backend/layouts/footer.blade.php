@@ -26,6 +26,7 @@
 <script src="{{ asset ('dist/js/data.js') }}"></script>
 <script src="{{ asset ('dist/js/app.js') }}"></script>
 
+
 </body>
 
 </html>

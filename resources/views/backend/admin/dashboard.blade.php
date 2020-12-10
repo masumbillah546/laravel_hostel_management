@@ -19,7 +19,7 @@
                                 <i class="fa fa-users fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">1</div>
+                                <div class="huge">{{$employee->count()}}</div>
                                 <div>Total Employee</div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="./ui/studentManage/studentlist.php">
+                    <a href="/student/list">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -86,7 +86,7 @@
                                 <i class="fa fa-maxcdn fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge"> 3</div>
+                                <div class="huge"> {{$meals->sum('noOfMeal')}}</div>
                                 <div>Today's Meal</div>
                             </div>
                         </div>
@@ -109,20 +109,23 @@
                     </div>
                     <div class="panel-body">
                         <div id="accordion" class="panel-group">
+                        @foreach($notices as $notice)
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a href="#des" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" class="collapsed">
-                                            Notice 1
+                                        <a href="#{{$notice->serial }}" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" class="collapsed">
+                                            {{$notice->title}}
                                         </a>
                                     </h4>
                                 </div>
-                                <div class="panel-collapse collapse" id="des" aria-expanded="false" style="height: 0px;">
-                                    <div class="panel-body">Description 1
+                                <div class="panel-collapse collapse" id="{{$notice->serial }}" aria-expanded="false" style="height: 0px;">
+                                    <div class="panel-body">
+                                        {{$notice->description}}
                                     </div>
                                 </div>
                             </div>
                            
+                        @endforeach
                         </div>
                     </div>
                     <div class="panel-footer">

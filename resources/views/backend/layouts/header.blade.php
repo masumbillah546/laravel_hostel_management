@@ -11,6 +11,7 @@
     <meta name="author" content="">
 
     <title>Hostel Management</title>
+    
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="{{ asset ('dist/css/bootstrap.min.css') }}" rel="stylesheet"> -->
@@ -36,6 +37,7 @@
     <link href="{{ asset ('dist/css/calendar.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('dist/css/custom_2.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('dist/css/app.css') }}" rel="stylesheet" type="text/css">
+
 
     <!-- HTML5 Shim and Respond.js') }} IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js') }} doesn't work if you view the page via file:// -->
@@ -98,13 +100,13 @@
                         <a href="#"><i class="fa fa-file-text fa-fw"></i>Attendence<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Add Attendence</a>
+                                <a href="/attendence/add">Add Attendence</a>
                             </li>
                             <li>
-                                <a href="#">Attendence List View</a>
+                                <a href="/attendence/list">Attendence List View</a>
                             </li>
                             <li>
-                                <a href="#">Attendence View</a>
+                                <a href="/attendence/view">Attendence View</a>
                             </li>
 
                         </ul>
@@ -113,10 +115,10 @@
                         <a href="#"><i class="fa fa-maxcdn fa-fw"></i>Meal Manage<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Add New</a>
+                                <a href="/meal/add">Add New</a>
                             </li>
                             <li>
-                                <a href="#">List View</a>
+                                <a href="/meal/view">List View</a>
                             </li>
 
 
@@ -126,10 +128,10 @@
                         <a href="#"><i class="fa fa-money fa-fw"></i>Cost Manage<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Add New</a>
+                                <a href="/cost/add">Add New</a>
                             </li>
                             <li>
-                                <a href="#">List View</a>
+                                <a href="/cost/view">List View</a>
                             </li>
 
 
@@ -139,14 +141,14 @@
                         <a href="#"><i class="fa fa-users fa-fw"></i>Students Manage<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/admin/admission">Admission</a>
+                                <a href="/student/admission">Admission</a>
                             </li>
                             <li>
-                                <a href="#">Student List</a>
+                                <a href="/student/list">Student List</a>
                             </li>
 
                             <li>
-                                <a href="#">Deposit</a>
+                                <a href="/student/deposit">Deposit</a>
                             </li>
                             <li>
                                 <a href="/seatalocation">Seat Alocation</a>
@@ -158,14 +160,14 @@
                         <a href="#"><i class="fa fa-money fa-fw"></i>Students Payment<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Add</a>
+                                <a href="/payment/add">Add</a>
                             </li>
                             <li>
-                                <a href="#">Approval List</a>
+                                <a href="/payment/approval">Approval List</a>
                             </li>
 
                             <li>
-                                <a href="#">View</a>
+                                <a href="/payment/view">View</a>
                             </li>
 
                         </ul>
@@ -220,7 +222,7 @@
                         <a href="#"><i class="fa fa-list-alt fa-fw"></i>Notice Board<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Notice Add/List</a>
+                                <a href="/notice/add">Notice Add/List</a>
                             </li>
 
 
