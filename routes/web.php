@@ -22,28 +22,33 @@ Route::view('/attendence/view','backend.admin.attendence.view');
 //Meal//
 Route::view('/meal/add','backend.admin.meal.add');
 Route::view('/meal/edit','backend.admin.meal.edit');
-Route::view('/meal/view','backend.admin.meal.view');
+Route::get('/meal/view','MealController@index');
 
 //Cost//
 Route::view('/cost/add','backend.admin.cost.add');
+Route::post('/cost/store','CostController@store');
 Route::view('/cost/edit','backend.admin.cost.edit');
-Route::view('/cost/view','backend.admin.cost.view');
+Route::get('/cost/view','CostController@index');
 
 //Student Manage
 Route::view('/student/admission','backend.admin.students.admission');
-Route::view('/student/list','backend.admin.students.list');
-Route::view('/student/deposit','backend.admin.students.deposit');
+Route::get('/student/list','StudentController@index');
+Route::get('/student/deposit','StudentController@deposit');
+Route::get('/student/profile/{userId}','StudentController@show');
 Route::get('/seatalocation', 'StudentController@seat_aloc');
 Route::post('/seatalocation/store', 'StudentController@seat_aloc_store');
 
 //payment
 Route::view('/payment/add','backend.admin.payment.add');
-Route::view('/payment/approval','backend.admin.payment.approval');
-Route::view('/payment/view','backend.admin.payment.view');
+Route::post('/payment/store','Payment@store');
+Route::get('/payment/approval','Payment@approval');
+Route::get('/payment/view','Payment@index');
+Route::get('/payment/{serial}','Payment@update');
 
 //Notice
 Route::get('/notice/add','Notice@create');
 Route::post('/notice','Notice@store');
+// Route::post('/notice','Notice@index');
 
 //Employee
 Route::view('/employee/add','backend.admin.employee.add');
@@ -51,13 +56,15 @@ Route::view('/employee/list','backend.admin.employee.list');
 Route::view('/employee/addsalary','backend.admin.employee.addsalary');
 Route::view('/employee/viewsalary','backend.admin.employee.viewsalary');
 
-//Vandor
-Route::view('/vandor/add','backend.admin.vandor.add');
-Route::view('/vandor/view','backend.admin.vandor.view');
+//Vendor
+Route::view('/vendor/add','backend.admin.vendor.add');
+Route::post('/vendor/store','VendorController@store');
+Route::get('/vendor/view','VendorController@index');
 
 //Bill
-Route::view('/bill/add','backend.admin.bill.add');
-Route::view('/bill/view','backend.admin.bill.view');
+Route::get('/bill/add','BillController@create');
+Route::post('/bill/store','BillController@store');
+Route::get('/bill/view','BillController@index');
 
 //Setting
 Route::view('/setting/adduser','backend.admin.setting.adduser');
@@ -68,11 +75,29 @@ Route::post('/room/add', 'RoomController@add');
 
 
 
-Route::get('/student', function () {
-    //return view('welcome');
+
+
+
+
+
+
     
-    return view('backend.students.st_dashboard');
-});
+Route::view('/student','backend.students.st_dashboard');
+
+//payment
+Route::view('/stpayment/add','backend.students.payment.add');
+//Route::view('/payment/approval','backend.admin.payment.approval');
+//Route::get('/payment/view','Payment@index');
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/employee', function () {
     //return view('welcome');

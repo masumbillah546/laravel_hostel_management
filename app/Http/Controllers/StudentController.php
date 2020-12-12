@@ -15,7 +15,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $st_info = DB::table('studentinfo')->get();
+        return view('backend.admin.students.list',compact('st_info') );
     }
 
     /**
@@ -45,9 +46,10 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($student)
     {
-        //
+         $profile = DB::table('studentinfo')->where('userId', $student)->get();
+        return view('backend.admin.students.profile',compact('profile') );
     }
 
     /**
@@ -84,10 +86,36 @@ class StudentController extends Controller
         //
     }
 
+     public function deposit()
+    {   
+        $st_info = DB::table('studentinfo')->get();
+        $deposit = DB::table('deposit')
+            ->join('studentinfo', 'deposit.userId', '=', 'studentinfo.userId')
+            ->select('deposit.*', 'studentinfo.name', 'deposit.amount','deposit.depositDate')
+            ->get();
+       
+        return view('backend.admin.students.deposit', compact('st_info','deposit'));
+    }
+
+    public function depositStore(Student $student)
+    {   
+        DB::insert('insert into seataloc (userId, roomNo,blockNo,monthlyRent) values (?, ?,?,?)', [$request->userId, $request->roomNo,$request->blockNo,$request->monthlyRent]);
+        return view('backend.admin.students.deposit');
+    }
+
      public function seat_aloc()
-    {   $st_info = DB::table('studentinfo')->get();
+    {   
+
+        $seataloc = DB::table('seataloc')
+            ->join('studentinfo', 'seataloc.userId', '=', 'studentinfo.userId')
+            ->select('seataloc.*', 'studentinfo.name', 'seataloc.blockNo','seataloc.roomNo','seataloc.monthlyRent')
+            ->get();
+            // ->join('orders', 'users.id', '=', 'orders.user_id')
+
+        $st_info = DB::table('studentinfo')->get();
+        
        $rooms= Room::all();
-       return view('backend.admin.setup.seatalocation', compact('rooms','st_info'));
+       return view('backend.admin.setup.seatalocation', compact('rooms','st_info','seataloc'));
     }
 
     public function seat_aloc_store(Request $request)
@@ -95,6 +123,7 @@ class StudentController extends Controller
         DB::insert('insert into seataloc (userId, roomNo,blockNo,monthlyRent) values (?, ?,?,?)', [$request->userId, $request->roomNo,$request->blockNo,$request->monthlyRent]);
 
         DB::update('update rooms set noOfSeat =  noOfSeat - 1 where roomNo = ?', [$request->roomNo]);
+        return $this->seat_aloc();
        // $st_info = DB::table('seataloc')->insert();
        // $rooms= Room::all();
        // return view('backend.pages.setup.seatalocation', compact('rooms','st_info'));

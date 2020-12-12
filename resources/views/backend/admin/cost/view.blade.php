@@ -42,13 +42,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($cost as $data)
                                     	<tr>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
+                                    		<td>{{$data->type}}</td>
+                                    		<td>{{$data->amount}}</td>
+                                    		<td>{{$data->description  }}</td>
+                                    		<td>{{$data->date}}</td>
                                     		<td><a title='Edit' class='btn btn-success btn-circle' href=''><i class='fa fa-pencil'></i></a>&nbsp&nbsp<a title='Delete' class='btn btn-danger btn-circle' href=''><i class='fa fa-trash-o'></i></a></td>
                                     	</tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                         </div>

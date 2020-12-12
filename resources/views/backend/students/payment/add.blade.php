@@ -1,4 +1,4 @@
-@extends('backend.master')
+@extends('backend.smaster')
 @section('content')
 
 <div id="page-wrapper">

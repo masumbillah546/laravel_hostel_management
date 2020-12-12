@@ -17,9 +17,10 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <form name="bill" action="create.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
+                    <form name="bill" action="/vendor/store"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
 
-
+                        @csrf 
+                        
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="col-lg-4">

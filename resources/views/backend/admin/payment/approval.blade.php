@@ -26,6 +26,7 @@
                         <div class="col-lg-12">
                             <hr />
                             <div class="table-responsive">
+                                 @if($stdpayment->count()>0)
                                 <table id="paymentList" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
@@ -40,22 +41,22 @@
                                               </tr>
                                     </thead>
                                     <tbody>
+                                          @foreach($stdpayment as $payment)
                                     	<tr>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td><a title='Approve' class='btn btn-info btn-circle' href=''><i class='fa fa-check'></i></a></td>
+                                    		<td>{{$payment->userId}}</td>
+                                            <td>{{$payment->transDate}}</td>
+                                            <td>{{$payment->paymentBy}}</td>
+                                            <td>{{$payment->transNo}}</td>
+                                            <td>{{$payment->amount}}</td>
+                                            <td>{{$payment->remark}}</td>
+                                    		<td><a title='Approve' class='btn btn-info btn-circle' href='/payment/{{$payment->serial}}'><i class='fa fa-check'></i></a></td>
                                     	</tr>
+                                          @endforeach
                                     </tbody>
                                 </table>
-                            else
-                            {
-                                echo "<h1 class='text-warning'>Payment Data Not Found!!!</h1>";
-                            }
-                            ?>
+                           @else
+                            <h1 class='text-warning'>Payment Data Not Found!!!</h1>
+                            @endif  
                         </div>
                     </div>
 

@@ -196,10 +196,10 @@
                         <a href="#"><i class="fa fa-dollar fa-fw"></i>Vendor Payment<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/vandor/add">Add New</a>
+                                <a href="/vendor/add">Add New</a>
                             </li>
                             <li>
-                                <a href="/vandor/view">List View</a>
+                                <a href="/vendor/view">List View</a>
                             </li>
 
                         </ul>

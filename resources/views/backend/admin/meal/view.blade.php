@@ -36,14 +36,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                          @foreach($meal as $data)
                                     	<tr>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
+                                    		<td>{{$data->name}}</td>
+                                    		<td>{{$data->noOfMeal}}</td>
+                                    		<td>{{$data->date}}</td>
                                     		<td><a title='Edit' class='btn btn-success btn-circle' href=''><i class='fa fa-pencil'></i></a>&nbsp&nbsp<a title='Delete' class='btn btn-danger btn-circle' href=''><i class='fa fa-trash-o'></i></a></td>
                                     	</tr>
+                                         @endforeach
                                     </tbody>
                                 </table>
+                            </div>
                         </div>
                     </div>
 

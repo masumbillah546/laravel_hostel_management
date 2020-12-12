@@ -30,3 +30,54 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+
+
+
+        $('#mealList, #paymentList,#studentList,#depositList,#seatList,#billList,#noticeList,#roomList').dataTable();
+    });
+
+
+
+
+</script>
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('.datepicker').datepicker();
+        $('#attendenceList').dataTable();
+
+        $('.editBtn').on('click', function(){
+
+           var serial=$(this).attr('href').substring(1);
+           var name=$(this).closest("tr").find("td").eq('0').text();
+
+
+            $("#name").val(name);
+            $('#attendDate').val($(this).closest("tr").find("td").eq('1').text());
+            $('#abs').val($(this).closest("tr").find("td").eq('2').text());
+            $('#leave').val($(this).closest("tr").find("td").eq('3').text());
+            $('#remark').val($(this).closest("tr").find("td").eq('4').text());
+
+            $.ajax({
+                type: 'POST',
+                url: '/hms/sesboss.php',
+                data: {'serial': serial},
+                success: function (msg) {
+                   // alert(msg);
+                },
+                error: function (err){
+                    console.log(err);
+                    alert('Error');
+                }
+            });
+
+        });
+    });
+
+
+
+
+</script>

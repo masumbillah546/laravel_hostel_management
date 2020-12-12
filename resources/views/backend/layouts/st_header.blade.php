@@ -88,7 +88,7 @@
                         <a href=" echo $base_url.'ui/attendence/view.php'"><i class="fa fa-file-text-o fa-fw"></i> Attendence View</a>
                     </li>
                     <li>
-                        <a href=" echo $base_url.'ui/stdpayment/add.php'"><i class="fa fa-money fa-fw"></i> Payment Add</a>
+                        <a href="/stpayment/add"><i class="fa fa-money fa-fw"></i> Payment Add</a>
                     </li>
                     <li>
                         <a href=" echo $base_url.'ui/stdpayment/view.php'"><i class="fa fa-money fa-fw"></i> Payment view</a>

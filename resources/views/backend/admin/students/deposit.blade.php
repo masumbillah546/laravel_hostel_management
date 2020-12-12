@@ -28,7 +28,10 @@
                                     <div class="form-group">
                                         <label>Student Name</label>
                                         <select class="form-control" name="person" required="">
-                                             echo $GLOBALS['output'];
+                                            <option>select one</option>
+                                             @foreach($st_info as $depos)
+                                             <option value="">{{$depos->name}}</option>
+                                             @endforeach
 
                                         </select>
                                     </div>
@@ -90,12 +93,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                         @foreach($deposit as $depos)
                                     	<tr>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
+                                    		<td>{{$depos->name}}</td>
+                                    		<td>{{$depos->amount}}</td>
+                                    		<td>{{$depos->depositDate}}</td>
                                     		<td><a title='Edit' class='btn btn-success btn-circle' href=''><i class='fa fa-pencil'></i></a>&nbsp&nbsp<a title='Delete' class='btn btn-danger btn-circle' href=''><i class='fa fa-trash-o'></i></a></td>
                                     	</tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                         </div>

@@ -1,4 +1,4 @@
-@extends('backend.master')
+@extends('backend.smaster')
 @section('content')
 
 <div id="page-wrapper">
@@ -155,14 +155,13 @@
                                     		<td>{{$payment->amount}}</td>
                                     		<td>{{$payment->remark}}</td>
                                     		<td>
-                                    			<a title='Edit' class='btn btn-success btn-circle editBtn' href=''><i class='fa fa-pencil'></i></a>&nbsp<a title='Delete' class='btn btn-danger btn-circle' href=''><i class='fa fa-trash-o'></i></a>
+                                    			<a title='Edit' class='btn btn-success btn-circle editBtn' href=''><i class='fa fa-pencil'></i></a>&nbsp&nbsp<a title='Delete' class='btn btn-danger btn-circle' href=''><i class='fa fa-trash-o'></i></a>
                                     		</td>
                                     		<td>{{$payment->isApprove}}</td>
                                     	</tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div>
                           
                            @else
                             <h1 class='text-warning'>Payment Data Not Found!!!</h1>

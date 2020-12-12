@@ -38,16 +38,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($st_info as $student)
                                     	<tr>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td><a title='View' class='btn btn-danger btn-circle' href=''><i class='fa fa-file-o'></i></a><a title='Edit' class='btn btn-success btn-circle' href=''><i class='fa fa-trash-o'></i></a></td>
+                                    		<td>{{$student->name}}</td>
+                                    		<td>{{$student->cellNo}}</td>
+                                    		<td>{{$student->nameOfInst}}</td>
+                                    		<td>{{$student->program}}</td>
+                                    		<td>{{$student->localGuardian}}</td>
+                                    		<td>{{$student->localGuardianCell}}</td>
+                                    		<td>{{$student->presentAddress}}</td>
+                                    		<td><a title='View' class='btn btn-danger btn-circle' href='/student/profile/{{$student->userId}}'><i class='fa fa-file-o'></i></a><a title='Edit' class='btn btn-success btn-circle' href=''><i class='fa fa-trash-o'></i></a></td>
                                     	</tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                         </div>

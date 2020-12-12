@@ -17,17 +17,19 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <form name="bill" action="add.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
-
+                    <form name="bill" action="/bill/store"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
+                        @csrf
 
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Student Name</label>
-                                        <select class="form-control" name="person" required="">
-                                             echo $GLOBALS['output'];
-
+                                        <select class="form-control" name="billTo" required="">
+                                             <option>select one</option>
+                                             @foreach($st_info as $student)
+                                             <option value="{{$student->userId}}">{{$student->name}}</option>
+                                             @endforeach
                                         </select>
                                     </div>
                                 </div>

@@ -10,12 +10,12 @@ class Notice extends Controller
 
     	// $datas = DB::table('notice')->get();
     	
-    	// return view('backend.admin.dashboard' , compact('datas'));
+    	// return view('backend.admin.notice.view' , compact('datas'));
     }
 
     public function create(){
-    	
-    	return view('backend.admin.notice.add');
+    	$datas = DB::table('notice')->get();
+    	return view('backend.admin.notice.add', compact('datas'));
     }
     public function store(Request $request){
 

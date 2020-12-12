@@ -31,19 +31,23 @@
                                             <th>Bill Id</th>
                                              <th>Name</th>
                                             <th>Amount</th>
+                                            <th>Type</th>
 
                                              <th>Bill Date</th>
                                              <th>Action</th>
                                          </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($billing as $data)
                                     	<tr>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
-                                    		<td></td>
+                                    		<td>{{$data->billTo}}</td>
+                                    		<td>{{$data->name}}</td>
+                                    		<td>{{$data->amount}}</td>
+                                            <td>{{$data->type}}</td>
+                                    		<td>{{$data->billingDate}}</td>
                                     		<td><a title='Delete' class='btn btn-danger btn-circle' href=''><i class='fa fa-trash-o'></i></a></td>
                                     	</tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                         </div>
