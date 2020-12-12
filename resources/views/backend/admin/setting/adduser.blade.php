@@ -107,11 +107,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    	@foreach($users as $user)
                                     	<tr>
-                                    		<td></td>
-                                    		<td></td>
+                                    		<td>{{$user->loginId}}</td>
+                                    		<td>{{$user->name}}</td>
                                     		<td><a title='Edit' class='btn btn-success btn-circle' href=''><i class='fa fa-pencil'></i></a>&nbsp&nbsp<a title='Delete' class='btn btn-danger btn-circle' href=''><i class='fa fa-trash-o'></i></a></td>
                                     	</tr>
+                                    	@endforeach
                                     </tbody>
                                 </table>
                         </div>

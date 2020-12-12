@@ -67,7 +67,7 @@ Route::post('/bill/store','BillController@store');
 Route::get('/bill/view','BillController@index');
 
 //Setting
-Route::view('/setting/adduser','backend.admin.setting.adduser');
+Route::get('/setting/adduser','SettingController@index');
 
 
 Route::get('/admin/room', 'RoomController@index');
