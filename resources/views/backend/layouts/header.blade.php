@@ -245,16 +245,16 @@
                         <a href="#"><i class="fa fa-gears fa-fw"></i>Setup<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Fees</a>
+                                <a href="/setup/fees">Fees</a>
                             </li>
                             <li>
-                                <a href="#">Meal Rate</a>
+                                <a href="/setup/mealrate">Meal Rate</a>
                             </li>
                             <li>
-                                <a href="#">Time Set</a>
+                                <a href="/setup/timeset">Time Set</a>
                             </li>
                             <li>
-                                <a href="#">Blocks</a>
+                                <a href="/setup/block">Blocks</a>
                             </li>
                             <li>
                                 <a href="/admin/room">Rooms</a>

@@ -7,7 +7,7 @@
             <h1 class="page-header titlehms"><i class="fa fa-hand-o-right"></i>Dashboard<i class="fa fa-hand-o-left"></i></h1>
             </div>
             <div class="col-lg-6">
-            <form action="sdashboard.php" accept-charset="utf-8" method="post" enctype="multipart/form-data">
+            <form action="" accept-charset="utf-8" method="post" enctype="multipart/form-data">
                 <button class="btn btn-success pull-right margin-to-5" type="submit" name="btnAttend"><i class="fa fa-2x fa-check"></i>Attendence</button>
             </form>
                 </div>

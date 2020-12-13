@@ -69,7 +69,11 @@ Route::get('/bill/view','BillController@index');
 //Setting
 Route::get('/setting/adduser','SettingController@index');
 
-
+//Setup
+Route::get('/setup/fees', 'SetupController@fees');
+Route::get('/setup/mealrate', 'SetupController@mealRate');
+Route::get('/setup/timeset', 'SetupController@timeset');
+Route::get('/setup/block', 'SetupController@block');
 Route::get('/admin/room', 'RoomController@index');
 Route::post('/room/add', 'RoomController@add');
 
