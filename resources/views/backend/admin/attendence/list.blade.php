@@ -111,6 +111,34 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <hr />
+                            <div class="table-responsive">
+                                <table id="attendenceList" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Name</th>
+                                             <th>Attend Date</th>
+                                             <th>Is Absence</th>
+                                             <th>Is Leave</th>
+                                             <th>Remark</th>
+                                              <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($att as $data)
+                                        <tr>
+                                            <td>{{$data->name}}</td>
+                                            <td>{{$data->date}}</td>
+                                            <td>{{$data->isAbsence}}</td>
+                                            <td>{{$data->isLeave}}</td>
+                                            <td>{{$data->remark}}</td>
+                                            <td><a title='Edit' class='btn btn-success btn-circle editBtn' href=''><i class='fa fa-pencil'></i></a>&nbsp&nbsp<a title='Delete' class='btn btn-danger btn-circle' href=''><i class='fa fa-trash-o'></i></a></td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                             <h1 class='text-warning'>Attendance Data Not Found!!!</h1>
                              
                             

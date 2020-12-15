@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SetupController extends Controller
 {
@@ -24,7 +25,8 @@ class SetupController extends Controller
      */
     public function fees()
     {
-          return view('backend.admin.setup.fees');
+         $fees = DB::table('feesinfo')->get();
+          return view('backend.admin.setup.fees', compact('fees'));
 
     }
 

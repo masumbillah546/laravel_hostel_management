@@ -14,8 +14,11 @@ class AttendenceController extends Controller
      */
     public function index()
     {
-        $users = DB::table('users2')->get();
-        return view('backend.admin.setting.adduser',compact('users') );
+        $att = DB::table('attendence')
+            ->join('studentinfo', 'attendence.userId', '=', 'studentinfo.userId')
+            ->select('attendence.*', 'studentinfo.name', 'attendence.date','attendence.isAbsence','attendence.isLeave','attendence.remark')
+            ->get();
+        return view('backend.admin.attendence.list',compact('att') );
     }
 
     /**

@@ -16,7 +16,7 @@ Route::get('/admin','Dashboard@index');
 
 //attendence//
 Route::view('/attendence/add','backend.admin.attendence.add');
-Route::view('/attendence/list','backend.admin.attendence.list');
+Route::get('/attendence/list','AttendenceController@index');
 Route::view('/attendence/view','backend.admin.attendence.view');
 
 //Meal//
