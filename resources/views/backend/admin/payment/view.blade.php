@@ -149,7 +149,8 @@
                                         @foreach($stdpayment as $payment)
                                     	<tr>
                                     		<td>{{$payment->userId}}</td>
-                                    		<td>{{$payment->transDate}}</td>
+                                    		<!-- <td>{{$payment->transDate}}</td> -->
+                                            <td>{{date("d/m/Y",strtotime($payment->transDate)) }}</td>
                                     		<td>{{$payment->paymentBy}}</td>
                                     		<td>{{$payment->transNo}}</td>
                                     		<td>{{$payment->amount}}</td>
