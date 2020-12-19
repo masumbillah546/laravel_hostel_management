@@ -160,5 +160,7 @@ Auth::routes();
 Route::get('/student', 'SdashboardController@index');
 
     
-
+Route::get('/login2','MainController@index');
+Route::post('/lin','MainController@login');
+Route::post('/lout','MainController@logout');
 

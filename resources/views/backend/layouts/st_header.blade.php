@@ -73,7 +73,8 @@
         <ul class="nav navbar-top-links navbar-right">
 
             <li>
-                <h5 class="titlehms"> Masum Billah</h5>
+                <h5 class="titlehms"><!-- {{ Auth::user()->name }} --></h5>
+                <h5 class="titlehms">{{ session('email') }}</h5>
             </li>
 
             <!-- /.dropdown -->
