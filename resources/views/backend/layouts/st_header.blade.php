@@ -95,7 +95,17 @@
                         <a href=" echo $base_url.'ui/bill/view.php'"><i class="fa fa-money fa-fw"></i>Bill view</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href=" echo $base_url;logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li>
+                        <!-- <a href=" echo $base_url;logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a> -->
+                        <a class="" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-fw"></i> 
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->

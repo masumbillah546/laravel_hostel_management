@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="panel-collapse collapse" id="{{$notice->serial }}" aria-expanded="false" style="height: 0px;">
                                     <div class="panel-body">
-                                        {{$notice->description}}
+                                        {!!$notice->description!!}
                                     </div>
                                 </div>
                             </div>
