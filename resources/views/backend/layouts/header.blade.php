@@ -81,7 +81,16 @@
                     <li><a href="ui/setting/adduser.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="index.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li>
+                        <!-- <a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a> -->
+                        <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-fw"></i>
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->

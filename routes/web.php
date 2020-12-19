@@ -10,6 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Auth::routes();
+// Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
+// 
+// 
+// 
+ // Route::group(['middleware'=>['auth']],function(){
+
+
 
 Route::get('/admin','Dashboard@index');
 
@@ -77,7 +85,7 @@ Route::get('/setup/block', 'SetupController@block');
 Route::get('/admin/room', 'RoomController@index');
 Route::post('/room/add', 'RoomController@add');
 
-
+// });
 
 
 
@@ -86,7 +94,7 @@ Route::post('/room/add', 'RoomController@add');
 
 
     
-Route::view('/student','backend.students.st_dashboard');
+// Route::view('/student','backend.students.st_dashboard');
 
 //payment
 Route::view('/stpayment/add','backend.students.payment.add');
@@ -109,11 +117,19 @@ Route::get('/employee', function () {
     return view('backend.employee.em_dashboard');
 });
 
-Route::get('/home', function () {
-    //return view('welcome');
+
+
+
+
+
+
+
+
+// Route::get('/home', function () {
+//     //return view('welcome');
     
-    return view('frontend.pages.home');
-});
+//     return view('frontend.pages.home');
+// });
 Route::get('/', function () {
     //return view('welcome');
     
@@ -132,4 +148,17 @@ Route::get('/register', function () {
     
     return view('frontend.pages.register');
 });
+
+
+
+
+Auth::routes();
+
+// Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/admin','Dashboard@index');
+Route::get('/student', 'SdashboardController@index');
+
+    
+
 
