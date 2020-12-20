@@ -16,14 +16,17 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <form name="attendence" action="view.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
+                    <form name="attendence" action="/attendence/view"  accept-charset="utf-8" method="GET" enctype="multipart/form-data">
+                        @csrf
                     <div class="row" style="display: echo $display;">
                         <div class="col-lg-12">
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Student Name</label>
-                                    <select class="form-control" name="person" required="">
-                                         echo $GLOBALS['output1'];
+                                    <select class="form-control" name="userId" required="">
+                                         @foreach($st_info as $student)
+                                             <option value="{{$student->userId}}">{{$student->name}}</option>
+                                        @endforeach
 
                                     </select>
                                 </div>
@@ -42,7 +45,7 @@
                         </div>
                     </form>
 
-                    <div class="row" style="display: echo $displaytable;">
+                    <div class="row" style="@if(!$att->count())display: none;@else display: ; @endif">
                         <div class="col-lg-12">
                             <hr />
                             <div class="table-responsive">
@@ -60,17 +63,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($att as $data)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{$data->name}}</td>
+                                            <td>{{$data->date}}</td>
+                                            <td>{{$data->isAbsence}}</td>
+                                            <td>{{$data->isLeave}}</td>
+                                            <td>{{$data->remark}}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
+
+                                @if(!$att->count())
                            <h1 class='text-warning'>Attendance Data Not Found!!!</h1>";
-                         
+                                @endif
                         </div>
                     </div>
 

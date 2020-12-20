@@ -26,9 +26,10 @@ class AttendenceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function add()
     {
-        //
+        $st_info = DB::table('studentinfo')->get();
+        return view('backend.admin.attendence.add', compact('st_info'));
     }
 
     /**
@@ -39,6 +40,18 @@ class AttendenceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            DB::insert('insert into attendence (userId, date,isAbsence,isLeave,remark) values (?, ?,?,?,?)', [$request->userId, $request->date,$request->isAbsence,$request->isLeave,$request->remark]);
+         return back();
+         // return $request;
+    }
+
+    public function show(Request $request)
+    {
+        $st_info = DB::table('studentinfo')->get();
+        $att = DB::table('attendence')
+        ->join('studentinfo', 'attendence.userId', '=', 'studentinfo.userId')
+            ->select('attendence.*', 'studentinfo.name', 'attendence.date','attendence.isAbsence','attendence.isLeave','attendence.remark')->where('attendence.userId', $request->userId)->get();
+        // $att = DB::table('attendence')->where('userId', $request->userId)->get();
+        return view('backend.admin.attendence.view', compact('st_info','att'));
     }
 }

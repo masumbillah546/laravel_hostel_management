@@ -26,9 +26,10 @@ class MealController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function add()
     {
-        //
+         $st_info = DB::table('studentinfo')->get();
+        return view('backend.admin.meal.add', compact('st_info'));
     }
 
     /**
@@ -38,7 +39,10 @@ class MealController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        // $date2=time();
+        $date=date("Y/m/d");
+          DB::insert('insert into meal (userId, noOfMeal,date) values (?, ?,?)', [$request->userId, $request->noOfMeal,$date]);
+         return back();
     }
 }

@@ -16,17 +16,18 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <form name="attendence" action="add.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
-
+                    <form name="attendence" action="/attendence/store"  accept-charset="utf-8" method="POST" enctype="multipart/form-data">
+                        @csrf
 
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Student Name</label>
-                                        <select class="form-control" name="person" required="">
-                                             echo $GLOBALS['output']
-
+                                        <select class="form-control" name="userId" required="">
+                                            @foreach($st_info as $student)
+                                             <option value="{{$student->userId}}">{{$student->name}}</option>
+                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -36,14 +37,14 @@
                                         <div class="input-group date" id='dp1'>
 
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i> </span>
-                                            <input type="text" placeholder="Attend Date" class="form-control datepicker" name="attendDate" required  data-date-format="dd/mm/yyyy">
+                                            <input type="text" placeholder="Attend Date" class="form-control datepicker" name="date" required  data-date-format="yyyy/mm/dd">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Is Absence</label>
-                                        <select class="form-control" name="isabs" required="">
+                                        <select class="form-control" name="isAbsence" required="">
 
                                         <option value="No">No</option>
                                          <option value="Yes">Yes</option>

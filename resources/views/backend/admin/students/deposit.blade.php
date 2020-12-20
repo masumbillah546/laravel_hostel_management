@@ -19,18 +19,18 @@
                 <div class="panel-body">
                     <div class="row">
                     <div class="col-lg-12">
-                    <form name="deposit" action="deposit.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
-
+                    <form name="deposit" action="/deposit/store"  accept-charset="utf-8" method="POST" enctype="multipart/form-data">
+                        @csrf
 
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Student Name</label>
-                                        <select class="form-control" name="person" required="">
+                                        <select class="form-control" name="userId" required="">
                                             <option>select one</option>
                                              @foreach($st_info as $depos)
-                                             <option value="">{{$depos->name}}</option>
+                                             <option value="{{$depos->userId}}">{{$depos->name}}</option>
                                              @endforeach
 
                                         </select>

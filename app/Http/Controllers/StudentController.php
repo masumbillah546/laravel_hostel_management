@@ -102,10 +102,11 @@ class StudentController extends Controller
         return view('backend.admin.students.deposit', compact('st_info','deposit'));
     }
 
-    public function depositStore(Student $student)
+    public function depositStore(Request $request)
     {   
-        DB::insert('insert into seataloc (userId, roomNo,blockNo,monthlyRent) values (?, ?,?,?)', [$request->userId, $request->roomNo,$request->blockNo,$request->monthlyRent]);
-        return view('backend.admin.students.deposit');
+         $date=date("Y/m/d");
+        DB::insert('insert into deposit (userId, amount,depositDate) values (?, ?,?)', [$request->userId, $request->amount,$date]);
+        return back();
     }
 
      public function seat_aloc()

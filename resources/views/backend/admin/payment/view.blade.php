@@ -9,6 +9,11 @@
         <!-- /.col-lg-12 -->
     </div>
 
+    @php
+
+    //print_r($stp) ;
+    @endphp
+
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -18,16 +23,19 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <form name="apyment" action="view.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
-                        <button type="submit" class="btn btn-info" style="display: echo $disBtnPrint2;;" name="btnPrint" ><i class="fa fa-print"></i>Print</button>
+                        <button type="submit" class="btn btn-info" style="display: none;" name="btnPrint" ><i class="fa fa-print"></i>Print</button>
                     </form>
-                    <form name="apyment" action="view.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
+                    <form name="apyment" action="/payment/view"  accept-charset="utf-8" method="GET" enctype="multipart/form-data">
+                        @csrf
                         <div class="row" id="divview" style="display: echo $display;">
                             <div class="col-lg-12">
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Student Name</label>
-                                        <select class="form-control" name="person" required="">
-                                             echo $GLOBALS['output1'];
+                                        <select class="form-control" name="userId" required="">
+                                        @foreach($st_info as $student)
+                                             <option value="{{$student->userId}}">{{$student->name}}</option>
+                                        @endforeach
 
                                         </select>
                                     </div>
@@ -126,11 +134,11 @@
                          </form>
                         </div>
 
-                        <div class="row" style="display: echo $displaytable;">
+                        <div class="row" style="@if(!$stp->count())display: none;@else display: ; @endif">
                         <div class="col-lg-12">
                             <hr />
                             <div class="table-responsive">
-                                @if($stdpayment->count()>0)
+                                @if($stp->count()>0)
                                 <table id="paymentList" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
@@ -146,7 +154,7 @@
                                           </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($stdpayment as $payment)
+                                        @foreach($stp as $payment)
                                     	<tr>
                                     		<td>{{$payment->userId}}</td>
                                     		<!-- <td>{{$payment->transDate}}</td> -->

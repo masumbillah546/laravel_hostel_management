@@ -18,13 +18,13 @@ class MainController extends Controller
     	//if($match){
     	//To store data in the session, you will typically use the put method or the session helper:
     	// $request->session()->regenerate();
-    	$request->session()->all();
-    	$request->session()->flash('status', 'Task was successful!');
+    	//$request->session()->all();
+    	//$request->session()->flash('status', 'Task was successful!');
     	//return $request->session()->flash('status');
-    	// $request->session()->put('email', $request->email);
+    	$request->session()->put('email', $request->email);
     	// return $request->session()->get('email');
-    	return session('status');
-        // return redirect('/student');
+    	//return session('status');
+        return redirect('/student');
         // return session('email');
 
     	//}

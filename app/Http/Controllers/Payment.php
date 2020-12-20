@@ -90,4 +90,15 @@ class Payment extends Controller
         //
     }
 
+    public function show(Request $request)
+    {
+        $st_info = DB::table('studentinfo')->get();
+
+        $stp = DB::table('stdpayment')
+        ->join('studentinfo', 'stdpayment.userId', '=', 'studentinfo.userId')
+            ->select('stdpayment.*', 'studentinfo.name', 'stdpayment.transDate','stdpayment.paymentBy','stdpayment.transNo','stdpayment.amount','stdpayment.remark')->where('stdpayment.userId', $request->userId)->get();
+        
+       return view('backend.admin.payment.view', compact('st_info','stp'));
+    }
+
 }

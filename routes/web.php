@@ -23,12 +23,14 @@ Route::get('/admin','Dashboard@index');
 
 
 //attendence//
-Route::view('/attendence/add','backend.admin.attendence.add');
+Route::get('/attendence/add','AttendenceController@add');
+Route::post('/attendence/store','AttendenceController@store');
 Route::get('/attendence/list','AttendenceController@index');
-Route::view('/attendence/view','backend.admin.attendence.view');
+Route::get('/attendence/view','AttendenceController@show');
 
 //Meal//
-Route::view('/meal/add','backend.admin.meal.add');
+Route::get('/meal/add','MealController@add');
+Route::post('/meal/store','MealController@store');
 Route::view('/meal/edit','backend.admin.meal.edit');
 Route::get('/meal/view','MealController@index');
 
@@ -42,6 +44,7 @@ Route::get('/cost/view','CostController@index');
 Route::view('/student/admission','backend.admin.students.admission');
 Route::get('/student/list','StudentController@index');
 Route::get('/student/deposit','StudentController@deposit');
+Route::post('/deposit/store','StudentController@depositStore');
 Route::get('/student/profile/{userId}','StudentController@show');
 Route::get('/seatalocation', 'StudentController@seat_aloc');
 Route::post('/seatalocation/store', 'StudentController@seat_aloc_store');
@@ -50,7 +53,8 @@ Route::post('/seatalocation/store', 'StudentController@seat_aloc_store');
 Route::view('/payment/add','backend.admin.payment.add');
 Route::post('/payment/store','Payment@store');
 Route::get('/payment/approval','Payment@approval');
-Route::get('/payment/view','Payment@index');
+// Route::get('/payment/view','Payment@index');
+Route::get('/payment/view','Payment@show');
 Route::get('/payment/{serial}','Payment@update');
 
 //Notice
