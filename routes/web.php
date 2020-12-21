@@ -97,13 +97,21 @@ Route::post('/room/add', 'RoomController@add');
 
 
 
-    
-// Route::view('/student','backend.students.st_dashboard');
+  Auth::routes();
 
-//payment
+// Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/admin','Dashboard@index');
+// 
+// Student dashboard
+Route::get('/student', 'SdashboardController@index');
+Route::get('/stprofile', 'SdashboardController@profile_view');
+Route::view('/stattendence/add','backend.students.payment.add');
+Route::get('/stattendence/view','SdashboardController@att_view');
 Route::view('/stpayment/add','backend.students.payment.add');
-//Route::view('/payment/approval','backend.admin.payment.approval');
-//Route::get('/payment/view','Payment@index');
+Route::get('/stpayment/view','SdashboardController@payment_view');
+Route::get('/stbill/view','SdashboardController@bill_view');
+// Route::get('/payment/view','Payment@index');
 
 
 
@@ -156,12 +164,6 @@ Route::get('/register', function () {
 
 
 
-Auth::routes();
-
-// Route::get('/', 'HomeController@index')->name('home');
-// Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/admin','Dashboard@index');
-Route::get('/student', 'SdashboardController@index');
 
     
 Route::get('/login2','MainController@index');

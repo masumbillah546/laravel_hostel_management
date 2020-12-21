@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="./ui/setup/room.php">
+                    <a href="/admin/room">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="./ui/meal/view.php">
+                    <a href="/meal/view">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

@@ -6,14 +6,19 @@
         <div class="col-lg-12">
             <h1 class="page-header titlehms"><i class="fa fa-hand-o-right"></i>Payment Add</h1>
         </div>
+        
         <!-- /.col-lg-12 -->
     </div>
+    @if(session('success'))
+        <div class="alert alert-success"><strong>{{session('success')}}</strong></div>
+        @endif
 
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-info-circle fa-fw"></i>Student Payment
+
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -25,17 +30,18 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Student Name</label>
-                                       <select class="form-control" name="userId" required="">
+                                     <!--   <select class="form-control" name="userId" required=""> -->
                                         @php
 
-                                        $st_info = DB::table('studentinfo')->get();
+                                        $st_info = DB::table('studentinfo')->where('userId',session('userId'))->get();
 
                                         @endphp
-                                        <option>select one</option>
+                                        
                                          @foreach($st_info as $student)
-                                        <option value="{{$student->userId}}">{{$student->name}}</option>
+                                         <input type="hidden" name="userId" value="{{$student->userId}}">
+                                        <input class="form-control" value="{{$student->name}}" disabled>
                                          @endforeach
-                                        </select>
+                                        <!-- </select> -->
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -44,7 +50,7 @@
                                         <div class="input-group date" id='dp1'>
 
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i> </span>
-                                            <input type="text" placeholder="Payment Date" class="form-control datepicker" name="transDate" required  data-date-format="dd/mm/yyyy">
+                                            <input autocomplete="off" type="text" placeholder="Payment Date" class="form-control datepicker" name="transDate" required  data-date-format="yyyy/mm/dd">
                                         </div>
                                     </div>
                                 </div>

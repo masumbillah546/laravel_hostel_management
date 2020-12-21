@@ -23,7 +23,7 @@
                             <i class="fa fa-money fa-4x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"> 0</div>
+                            <div class="huge"> {{$deposit->sum('amount')}}</div>
                             <div>Current Deposit</div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                             <i class="fa fa-maxcdn fa-4x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"> 1</div>
+                            <div class="huge"> {{$meals->sum('noOfMeal')}}</div>
                             <div>Today's Meal</div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                             <i class="fa fa-maxcdn fa-4x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"> 2</div>
+                            <div class="huge">{{$mealst->sum('noOfMeal')}}</div>
                             <div>Total Meal</div>
                         </div>
                     </div>
@@ -70,10 +70,12 @@
                     <div class="row">
                         <div class="col-xs-3">
                             <i class="fa fa-money fa-4x"></i>
-                            <div>Rate: 3</div>
+                         
+                            <div>Rate:@foreach($mealrate as $data){{$data->rate}}</div>
+                            
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"> 2</div>
+                            <div class="huge">{{$mealst->sum('noOfMeal')*$data->rate}}</div>@endforeach
                             <div>Total Meal Cost</div>
                         </div>
                     </div>
@@ -90,22 +92,23 @@
                 </div>
                 <div class="panel-body">
                     <div id="accordion" class="panel-group">
-                         while ($row = mysql_fetch_array($GLOBALS['data'])) {
-
-
-                            echo  '<div class="panel panel-success">
+                      @foreach($notices as $notice)
+                            <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a href="#'.$row['serial'].'" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" class="collapsed">'.$row['title'].'&nbsp;['.$row['date'].']</a>';
-                            echo         '</h4>
+                                        <a href="#{{$notice->serial }}" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" class="collapsed">
+                                            {{$notice->title}}&nbsp;[{{$notice->createdDate}}]
+                                        </a>
+                                    </h4>
                                 </div>
-                                <div class="panel-collapse collapse" id="'.$row['serial'].'" aria-expanded="false" style="height: 0px;">
-                                    <div class="panel-body">';
-                            echo $row['description'];
-                            echo    '</div></div></div>';
-
-
-                        }
+                                <div class="panel-collapse collapse" id="{{$notice->serial }}" aria-expanded="false" style="height: 0px;">
+                                    <div class="panel-body">
+                                        {!!$notice->description!!}
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        @endforeach
                         
                     </div>
                 </div>

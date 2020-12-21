@@ -18,10 +18,12 @@ class Dashboard extends Controller
     
     public function index(){
 
+        $date=date('Y/m/d');
+
     	$st = DB::table('studentinfo')->get();
     	$notices = DB::table('notice')->get();
     	$employee = DB::table('employee')->get();
-    	$meals = DB::table('meal')->get();
+    	$meals = DB::table('meal')->where('date', $date)->get();
     	$st_count=$st->count();
     	$data = Room::all();
     	$count =$data->count();

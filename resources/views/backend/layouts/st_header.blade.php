@@ -83,17 +83,17 @@
                     <i class="fa fa-bars fa-fw"></i> Menu <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href=" echo $base_url;ui/usr/profile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="/stprofile"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
                     <li>
-                        <a href=" echo $base_url.'ui/attendence/view.php'"><i class="fa fa-file-text-o fa-fw"></i> Attendence View</a>
+                        <a href="/stattendence/view"><i class="fa fa-file-text-o fa-fw"></i> Attendence View</a>
                     </li>
                     <li>
                         <a href="/stpayment/add"><i class="fa fa-money fa-fw"></i> Payment Add</a>
                     </li>
                     <li>
-                        <a href=" echo $base_url.'ui/stdpayment/view.php'"><i class="fa fa-money fa-fw"></i> Payment view</a>
-                        <a href=" echo $base_url.'ui/bill/view.php'"><i class="fa fa-money fa-fw"></i>Bill view</a>
+                        <a href="/stpayment/view"><i class="fa fa-money fa-fw"></i> Payment view</a>
+                        <a href="/stbill/view"><i class="fa fa-money fa-fw"></i>Bill view</a>
                     </li>
                     <li class="divider"></li>
                     <li>
