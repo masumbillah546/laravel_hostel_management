@@ -22,7 +22,8 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <form name="apyment" action="view.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
+                    <form name="apyment" action="/stpayment/pdf"  accept-charset="utf-8" method="GET" enctype="multipart/form-data">
+                        @csrf
                         <button type="submit" class="btn btn-info" style="display: ;" name="btnPrint" ><i class="fa fa-print"></i>Print</button>
                     </form>
                   

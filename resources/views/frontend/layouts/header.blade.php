@@ -52,7 +52,7 @@ h1 {
         <li><a style="color: white" onMouseOver="this.style.color='#85E3EB'"  onMouseOut="this.style.color='white'" href="#contact">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a style="color: white" onMouseOver="this.style.color='#85E3EB'"  onMouseOut="this.style.color='white'" href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a style="color: white" onMouseOver="this.style.color='#85E3EB'"  onMouseOut="this.style.color='white'" href="/login2"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li><a style="color: white" onMouseOver="this.style.color='#85E3EB'"  onMouseOut="this.style.color='white'" href="/admission"><span class="glyphicon glyphicon-log-in"></span> Admission</a></li>
       </ul>
     </div>

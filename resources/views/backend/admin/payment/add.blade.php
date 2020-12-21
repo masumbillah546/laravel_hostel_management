@@ -7,7 +7,11 @@
             <h1 class="page-header titlehms"><i class="fa fa-hand-o-right"></i>Payment Add</h1>
         </div>
         <!-- /.col-lg-12 -->
+
     </div>
+    @if(session('success'))
+        <div class="alert alert-success"><strong>{{session('success')}}</strong></div>
+        @endif
 
     <div class="row">
         <div class="col-lg-12">

@@ -66,15 +66,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img alt="HMS" class="pull-left" src="{{ asset('home.png') }}" width="40"><a class="navbar-brand titlehms" href=" echo $base_url.'sdashboard.php'">Hostel Management System</a>
+            <img alt="HMS" class="pull-left" src="{{ asset('home.png') }}" width="40"><a class="navbar-brand titlehms" href="/student">Hostel Management System</a>
         </div>
         <!-- /.navbar-header -->
 
         <ul class="nav navbar-top-links navbar-right">
 
             <li>
-                <h5 class="titlehms"><!-- {{ Auth::user()->name }} --></h5>
-                <h5 class="titlehms">{{ session('email') }}</h5>
+                
+                <h5 class="titlehms">{{ session('name') }}</h5>
             </li>
 
             <!-- /.dropdown -->

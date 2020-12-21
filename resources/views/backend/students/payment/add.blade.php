@@ -22,7 +22,7 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <form name="attendence" action="/payment/store"  accept-charset="utf-8" method="POST" enctype="multipart/form-data">
+                    <form name="attendence" action="/stpayment/store"  accept-charset="utf-8" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row">
@@ -31,16 +31,12 @@
                                     <div class="form-group">
                                         <label>Student Name</label>
                                      <!--   <select class="form-control" name="userId" required=""> -->
-                                        @php
-
-                                        $st_info = DB::table('studentinfo')->where('userId',session('userId'))->get();
-
-                                        @endphp
+                                       
                                         
-                                         @foreach($st_info as $student)
-                                         <input type="hidden" name="userId" value="{{$student->userId}}">
-                                        <input class="form-control" value="{{$student->name}}" disabled>
-                                         @endforeach
+                                         
+                                         <input type="hidden" name="userId" value="{{session('userId')}}">
+                                        <input class="form-control" value="{{session('name')}}" disabled>
+                                       
                                         <!-- </select> -->
                                     </div>
                                 </div>

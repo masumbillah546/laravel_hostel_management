@@ -15,7 +15,8 @@
 // 
 // 
 // 
- // Route::group(['middleware'=>['auth']],function(){
+ 
+Route::group(['middleware'=>['auth']],function(){
 
 
 
@@ -89,7 +90,7 @@ Route::get('/setup/block', 'SetupController@block');
 Route::get('/admin/room', 'RoomController@index');
 Route::post('/room/add', 'RoomController@add');
 
-// });
+ });
 
 
 
@@ -102,18 +103,22 @@ Route::post('/room/add', 'RoomController@add');
 // Route::get('/', 'HomeController@index')->name('home');
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/admin','Dashboard@index');
-// 
+ 
 // Student dashboard
+Route::group([],function(){
+
 Route::get('/student', 'SdashboardController@index');
 Route::get('/stprofile', 'SdashboardController@profile_view');
 Route::view('/stattendence/add','backend.students.payment.add');
 Route::get('/stattendence/view','SdashboardController@att_view');
-Route::view('/stpayment/add','backend.students.payment.add');
+Route::get('/stpayment/add','SdashboardController@padd');
+Route::post('/stpayment/store','SdashboardController@store');
 Route::get('/stpayment/view','SdashboardController@payment_view');
+Route::get('/stpayment/pdf','SdashboardController@pdf');
 Route::get('/stbill/view','SdashboardController@bill_view');
 // Route::get('/payment/view','Payment@index');
 
-
+});
 
 
 
@@ -137,11 +142,11 @@ Route::get('/employee', function () {
 
 
 
-// Route::get('/home', function () {
-//     //return view('welcome');
+Route::get('/home', function () {
+    //return view('welcome');
     
-//     return view('frontend.pages.home');
-// });
+    return view('frontend.pages.home');
+});
 Route::get('/', function () {
     //return view('welcome');
     

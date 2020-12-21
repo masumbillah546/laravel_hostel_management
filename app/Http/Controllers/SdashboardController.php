@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class SdashboardController extends Controller
 {
@@ -17,7 +18,14 @@ class SdashboardController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
+        // $user=session('userId');
+        // $user=session('userId');
+
+        //  if(!isset($user)){
+        //     return redirect('/login2');
+        // }
+        
     }
     
      /**
@@ -28,8 +36,13 @@ class SdashboardController extends Controller
     public function index()
     {
 
+
          $date=date('Y/m/d');
          $user=session('userId');
+
+         if(!isset($user)){
+            return redirect('/login2');
+        }
        
         $notices = DB::table('notice')->get();
         $deposit = DB::table('deposit')->where('userId',  $user)->get();
@@ -44,6 +57,11 @@ class SdashboardController extends Controller
      public function profile_view($student='U008')
     {
          $user=session('userId');
+
+          if(!isset($user)){
+            return redirect('/login2');
+        }
+
          $profile = DB::table('studentinfo')->where('userId', $user)->get();
         return view('backend.students.profile.profile',compact('profile') );
     }
@@ -53,9 +71,16 @@ class SdashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function notice(){
-        $datas = DB::table('notice')->get();
-        return view('backend.admin.notice.add', compact('datas'));
+    public function padd(){
+
+         $user=session('userId');
+
+         if(!isset($user)){
+            return redirect('/login2');
+        }
+
+       
+        return view('backend.students.payment.add');
     }
 
     /**
@@ -64,17 +89,44 @@ class SdashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function payment_store(Request $request)
+    public function store(Request $request)
     {
         
+        
+        DB::insert('insert into stdpayment (userId, paymentBy,transNo,amount,transDate,remark) values (?, ?,?,?,?, ?)', [$request->userId, $request->paymentBy,$request->transNo,$request->amount,$request->transDate,$request->remark]);
+         // return view('backend.admin.payment.add');
+            $request->session()->flash('success', 'Payment added successfully!');
+         return back();
     }
+
      public function payment_view($student='U008')
     {
          $user=session('userId');
+
+          if(!isset($user)){
+            return redirect('/login2');
+        }
+
          $stp = DB::table('stdpayment')
         ->join('studentinfo', 'stdpayment.userId', '=', 'studentinfo.userId')
             ->select('stdpayment.*', 'studentinfo.name', 'stdpayment.transDate','stdpayment.paymentBy','stdpayment.transNo','stdpayment.amount','stdpayment.remark')->where('stdpayment.userId', $user)->get();
         return view('backend.students.payment.view',compact('stp') );
+    }
+
+
+    public function pdf(Request $student)
+    {
+         $user=session('userId');
+
+          if(!isset($user)){
+            return redirect('/login2');
+        }
+
+         $stp = DB::table('stdpayment')
+        ->join('studentinfo', 'stdpayment.userId', '=', 'studentinfo.userId')
+            ->select('stdpayment.*', 'studentinfo.name', 'stdpayment.transDate','stdpayment.paymentBy','stdpayment.transNo','stdpayment.amount','stdpayment.remark')->where('stdpayment.userId', $user)->get();
+        $pdf=PDF::loadview('backend.students.payment.view',compact('stp') );
+         return $pdf->download('payment.pdf');
     }
 
     
@@ -82,6 +134,11 @@ class SdashboardController extends Controller
      public function bill_view($student='U008')
     {
          $user=session('userId');
+
+          if(!isset($user)){
+            return redirect('/login2');
+        }
+
         $billing = DB::table('billing')
             ->join('studentinfo', 'billing.billTo', '=', 'studentinfo.userId')
             ->select('billing.*', 'studentinfo.name', 'billing.amount','billing.billingDate')->where('billing.billTo', $user)
@@ -93,6 +150,11 @@ class SdashboardController extends Controller
      public function add_att($student)
     {
          $user=session('userId');
+
+          if(!isset($user)){
+            return redirect('/login2');
+        }
+
          $profile = DB::table('studentinfo')->where('userId', $user)->get();
         return view('backend.admin.students.profile',compact('profile') );
     }
@@ -100,6 +162,11 @@ class SdashboardController extends Controller
      public function att_view($student='U008')
     {
         $user=session('userId');
+
+         if(!isset($user)){
+            return redirect('/login2');
+        }
+
           $st_info = DB::table('studentinfo')->get();
         $att = DB::table('attendence')
         ->join('studentinfo', 'attendence.userId', '=', 'studentinfo.userId')

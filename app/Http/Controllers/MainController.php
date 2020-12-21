@@ -16,12 +16,19 @@ class MainController extends Controller
 
     public function login(Request $request )
     {
-        $userId = DB::table('users2')->where('loginId', $request->loginId)->where('password', $request->password)->get('userId');
-        foreach ($userId as $id) {
+        $userId = DB::table('users2')->where('loginId', $request->loginId)->where('password', $request->password)->get();
+        if($userId->count()){
+             foreach ($userId as $id) {
              $request->session()->put('userId', $id->userId);
+             $request->session()->put('name', $id->name);
              return redirect('/student');
         // return $request->session()->get('email');
+            }
+        }else{
+            $request->session()->flash('invalid', 'User id or password incorrect!');
+            return back();
         }
+       
     	//if($match){
     	//To store data in the session, you will typically use the put method or the session helper:
     	// $request->session()->regenerate();
