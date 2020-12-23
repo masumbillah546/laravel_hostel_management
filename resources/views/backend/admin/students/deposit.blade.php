@@ -30,7 +30,7 @@
                                         <select class="form-control" name="userId" required="">
                                             <option>select one</option>
                                              @foreach($st_info as $depos)
-                                             <option value="{{$depos->userId}}">{{$depos->name}}</option>
+                                             <option value="{{$depos->userId}}">U00{{$depos->userId}} - {{$depos->name}}</option>
                                              @endforeach
 
                                         </select>

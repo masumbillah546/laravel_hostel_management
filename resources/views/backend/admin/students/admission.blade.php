@@ -19,8 +19,8 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <form name="admission" action="admission.php" onsubmit="return checkForm(this);" accept-charset="utf-8" method="post" enctype="multipart/form-data">
-
+                        <form name="admission" action="/admission" onsubmit="return checkForm(this);" accept-charset="utf-8" method="POST" enctype="multipart/form-data">
+                            @csrf
 
                             <div class="row">
                                 <div class="col-lg-12">
@@ -34,16 +34,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group ">
-                                            <label>Student Id(As Login Id)</label>
-                                            <div class="input-group">
-
-                                                <span class="input-group-addon"><i class="fa fa-info"></i> </span>
-                                                <input type="text" placeholder="Student Id" class="form-control" name="stdId" required>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="col-lg-4">
                                         <div class="form-group ">
                                             <label>Cell No</label>
@@ -154,7 +145,7 @@
                                             <div class="input-group date" id='dp1'>
 
                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i> </span>
-                                                <input type="text" placeholder="Date Of Birth" class="form-control datepicker" name="dob" required  data-date-format="dd/mm/yyyy">
+                                                <input type="text" placeholder="Date Of Birth" class="form-control datepicker" name="dob" required  data-date-format="yyyy/mm/dd">
                                             </div>
                                         </div>
                                     </div>
@@ -349,7 +340,7 @@
 @endsection
 
 
-
+<!-- 
 <script type="text/javascript">
     $( document ).ready(function() {
         $('.datepicker').datepicker();
@@ -375,4 +366,4 @@
     }
 
 
-</script>
+</script> -->

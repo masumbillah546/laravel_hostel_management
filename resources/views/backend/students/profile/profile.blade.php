@@ -24,7 +24,7 @@
                         <div class="col-lg-4">
                             </div>
                         <div class="col-lg-4" >
-                            <img style="border: 1px solid black" src="{{asset('storage/images').'/'.$student->perPhoto}}" alt="Avatar" height="220px" class="img-responsive img-rounded proimg" >
+                            <img style="border: 1px solid black" src="{{asset('storage').'/'.$student->perPhoto}}" alt="Avatar" height="220px" class="img-responsive img-rounded proimg" >
                         </div>
                         <div class="col-lg-4">
                         </div>

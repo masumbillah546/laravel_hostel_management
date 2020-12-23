@@ -26,6 +26,7 @@
                                 <table id="studentList" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Name</th>
                                             <th>Mobile No</th>
                                             <th>Institute</th>
@@ -40,7 +41,8 @@
                                     <tbody>
                                         @foreach($st_info as $student)
                                     	<tr>
-                                    		<td>{{$student->name}}</td>
+                                    		<td>U00{{$student->userId}}</td>
+                                            <td>{{$student->name}}</td>
                                     		<td>{{$student->cellNo}}</td>
                                     		<td>{{$student->nameOfInst}}</td>
                                     		<td>{{$student->program}}</td>

@@ -160,11 +160,10 @@ Route::get('/single', function () {
     return view('frontend.pages.single');
 });
 
-Route::get('/register', function () {
-    //return view('welcome');
-    
-    return view('frontend.pages.register');
-});
+Route::view('/admission','frontend.pages.register');
+Route::post('/admission/store','AdmissionController@store');
+
+
 
 
 

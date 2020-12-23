@@ -12,7 +12,6 @@
 
 
 
-
 <div class="container"> 
 	<div class="row">
 
@@ -25,6 +24,10 @@
             </div>
             <!-- /.col-lg-12 -->
         </div>
+        @if(session('success'))
+        <div class="alert alert-success"><strong>{{session('success')}}</strong></div>
+        <div class="alert alert-success"><strong>{{session()->get('name')}}</strong></div>
+        @endif
 
         <div class="row">
             <div class="col-lg-12">
@@ -34,8 +37,8 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <form name="admission" action="admission.php" onsubmit="return checkForm(this);" accept-charset="utf-8" method="post" enctype="multipart/form-data">
-
+                        <form name="admission" action="/admission/store" onsubmit="return checkForm(this);" accept-charset="utf-8" method="POST" enctype="multipart/form-data">
+                            @csrf
 
                             <div class="row">
                                 <div class="col-lg-12">
@@ -169,7 +172,7 @@
                                             <div class="input-group date" id='dp1'>
 
                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i> </span>
-                                                <input type="text" placeholder="Date Of Birth" class="form-control datepicker" name="dob" required  data-date-format="dd/mm/yyyy">
+                                                <input type="date" placeholder="Date Of Birth" class="form-control " name="dob" required  data-date-format="yyyy/mm/dd" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -370,7 +373,7 @@
 @endsection
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $( document ).ready(function() {
         $('.datepicker').datepicker();
 
@@ -396,4 +399,4 @@
 
 
 </script>
-
+ -->

@@ -16,7 +16,7 @@ class MainController extends Controller
 
     public function login(Request $request )
     {
-        $userId = DB::table('users2')->where('loginId', $request->loginId)->where('password', $request->password)->get();
+        $userId = DB::table('studentinfo')->where('email', $request->loginId)->where('password', $request->password)->get();
         if($userId->count()){
              foreach ($userId as $id) {
              $request->session()->put('userId', $id->userId);

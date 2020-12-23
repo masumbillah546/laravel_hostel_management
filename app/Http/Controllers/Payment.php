@@ -53,7 +53,8 @@ class Payment extends Controller
      */
     public function approval()
     {
-         $stdpayment = DB::table('stdpayment')->where('isApprove', 'No')->get();
+         $stdpayment = DB::table('stdpayment')
+         ->join('studentinfo', 'stdpayment.userId', '=', 'studentinfo.userId')->where('stdpayment.isApprove', 'No')->get();
         
        return view('backend.admin.payment.approval', compact('stdpayment'));
     }

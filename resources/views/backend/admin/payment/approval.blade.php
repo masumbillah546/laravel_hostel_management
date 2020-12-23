@@ -31,6 +31,7 @@
                                     <thead>
                                         <tr>
 
+                                            <th>ID</th>
                                             <th>Name</th>
                                              <th>Payment Date</th>
                                              <th>Paid By</th>
@@ -43,7 +44,8 @@
                                     <tbody>
                                           @foreach($stdpayment as $payment)
                                     	<tr>
-                                    		<td>{{$payment->userId}}</td>
+                                    		<td>U00{{$payment->userId}}</td>
+                                            <td>{{$payment->name}}</td>
                                             <td>{{$payment->transDate}}</td>
                                             <td>{{$payment->paymentBy}}</td>
                                             <td>{{$payment->transNo}}</td>

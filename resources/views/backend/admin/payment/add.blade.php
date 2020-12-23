@@ -35,9 +35,9 @@
                                         $st_info = DB::table('studentinfo')->get();
 
                                         @endphp
-                                        <option>select one</option>
+                                        <option>select student</option>
                                          @foreach($st_info as $student)
-                                        <option value="{{$student->userId}}">{{$student->name}}</option>
+                                        <option value="{{$student->userId}}">U00{{$student->userId}} - {{$student->name}}</option>
                                          @endforeach
                                         </select>
                                     </div>

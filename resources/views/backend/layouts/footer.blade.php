@@ -118,3 +118,30 @@
 
     });
 </script>
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('.datepicker').datepicker();
+
+
+    });
+    function checkForm(form) {
+
+        var password = document.getElementById("password")
+            , confirm_password = document.getElementById("rePassword");
+        console.log(password.value);
+        console.log(confirm_password.value);
+        if(password.value != confirm_password.value) {
+
+            $("#lblmsg").text("**Passwords Don't Match");
+
+            return false;
+        } else {
+
+            return true;
+        }
+
+    }
+
+
+</script>

@@ -26,8 +26,9 @@
                                     <div class="form-group">
                                         <label>Student Name</label>
                                         <select class="form-control" name="userId" required="">
+                                            <option>Select Student</option>
                                              @foreach($st_info as $student)
-                                             <option value="{{$student->userId}}">{{$student->name}}</option>
+                                             <option value="{{$student->userId}}">U00{{$student->userId}} - {{$student->name}}</option>
                                              @endforeach
                                         </select>
                                     </div>
