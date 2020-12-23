@@ -116,7 +116,7 @@
                                     <thead>
                                         <tr>
 
-                                            <th>Name</th>
+                                            <!-- <th>Name</th> -->
                                              <th>Payment Date</th>
                                              <th>Paid By</th>
                                              <th>Transection/Mobile No</th>
@@ -129,7 +129,7 @@
                                     <tbody>
                                         @foreach($stp as $payment)
                                         <tr>
-                                            <td>{{$payment->name}}</td>
+                                            <!-- <td>{{$payment->name}}</td> -->
                                             <!-- <td>{{$payment->transDate}}</td> -->
                                             <td>{{date("d/m/Y",strtotime($payment->transDate)) }}</td>
                                             <td>{{$payment->paymentBy}}</td>

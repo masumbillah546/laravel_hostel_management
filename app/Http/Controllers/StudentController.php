@@ -113,12 +113,20 @@ class StudentController extends Controller
     {   
 
         $seataloc = DB::table('seataloc')
-            ->join('studentinfo', 'seataloc.userId', '=', 'studentinfo.userId')
-            ->select('seataloc.*', 'studentinfo.name', 'seataloc.blockNo','seataloc.roomNo','seataloc.monthlyRent')
-            ->get();
+            ->join('studentinfo', 'seataloc.userId', '=', 'studentinfo.userId')->get();
             // ->join('orders', 'users.id', '=', 'orders.user_id')
+            // return $seataloc->userId;
 
-        $st_info = DB::table('studentinfo')->get();
+            $info = array();
+            foreach($seataloc as $user){
+                
+                 array_push($info, $user->userId);
+            }
+            //return $info;
+
+        $st_info = DB::table('studentinfo')
+        ->whereNotIn('userId',$info)
+        ->get();
         
        $rooms= Room::all();
        return view('backend.admin.setup.seatalocation', compact('rooms','st_info','seataloc'));
@@ -128,7 +136,7 @@ class StudentController extends Controller
     {   
         DB::insert('insert into seataloc (userId, roomNo,blockNo,monthlyRent) values (?, ?,?,?)', [$request->userId, $request->roomNo,$request->blockNo,$request->monthlyRent]);
 
-        DB::update('update rooms set noOfSeat =  noOfSeat - 1 where roomNo = ?', [$request->roomNo]);
+        DB::update('update rooms set available =  available - 1 where roomNo = ?', [$request->roomNo]);
         return $this->seat_aloc();
        // $st_info = DB::table('seataloc')->insert();
        // $rooms= Room::all();

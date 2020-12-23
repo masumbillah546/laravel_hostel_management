@@ -9,6 +9,10 @@
             <!-- /.col-lg-12 -->
         </div>
 
+         @if(session('success'))
+        <div class="alert alert-success"><strong>{{session('success')}}</strong></div>
+        @endif
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
@@ -19,19 +23,22 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form name="mealrate" action="timeset.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
-
+                                <form name="mealrate" action="/time/update"  accept-charset="utf-8" method="POST" enctype="multipart/form-data">
+                                    @csrf
 
                                     <div class="row">
                                         <div class="col-lg-12">
 
-
+                                             @php 
+                                             $time = DB::table('timeset')->get();
+                                            @endphp
+                                            @foreach($time as $t)
 
                                             <div class="col-lg-4">
                                                 <div class="form-group ">
                                                     <label>In Time</label>
                                                     <div class="input-group bootstrap-timepicker">
-                                                        <input type="text" id="timepicker2" name="start_time" data-default-time="false" placeholder="h:mm AM"  class="form-control"  value=" echo $GLOBALS['start_time'];" required>
+                                                        <input type="text" id="timepicker2" name="inTime" data-default-time="false" placeholder="h:mm AM"  class="form-control"  value="{{$t->inTime}}" required>
                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                                                     </div>
 
@@ -42,13 +49,14 @@
                                                 <div class="form-group ">
                                                     <label>Out Time</label>
                                                     <div class="input-group bootstrap-timepicker">
-                                                        <input type="text" id="timepicker1" name="end_time" data-default-time="false" placeholder="h:mm AM"  class="form-control"  value=" echo $GLOBALS['end_time'];" required>
+                                                        <input type="text" id="timepicker1" name="outTime" data-default-time="false" placeholder="h:mm AM"  class="form-control"  value="{{$t->outTime}}" required>
                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                                                     </div>
 
                                                 </div>
                                             </div>
                                         </div>
+                                        @endforeach
                                     </div>
 
 

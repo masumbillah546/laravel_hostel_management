@@ -41,10 +41,35 @@ class SetupController extends Controller
         return view('backend.admin.setup.mealrate');
     }
 
+    public function update(Request $request)
+    {
+     
+        DB::table('mealrate')
+                ->where('id', 1)
+                ->update([
+                         'rate' => $request->rate,
+                         'note' => $request->note
+                        ]);
+                 return back()->with($request->session()->flash('success', 'Mealrate Updated successfully!'));
+    
+    }
+
     public function timeset()
     {
         return view('backend.admin.setup.timeset');
     }
+
+    public function timeUpdate(Request $request)
+    {
+         DB::table('timeset')
+                ->where('id', 1)
+                ->update([
+                         'inTime' => $request->inTime,
+                         'outTime' => $request->outTime
+                        ]);
+                 return back()->with($request->session()->flash('success', 'Time Updated successfully!'));
+    }
+
     public function block()
     {
         return view('backend.admin.setup.block');

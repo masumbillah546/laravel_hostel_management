@@ -31,7 +31,7 @@
                                                 	 <option>select one</option>
                                                 	 @foreach($st_info as $student)
                                                    
-                                                    <option value="{{$student->userId}}">{{$student->name}}</option>
+                                                    <option value="{{$student->userId}}">U00{{$student->userId}} - {{$student->name}}</option>
                                                     @endforeach
 
                                                 </select>
@@ -106,6 +106,7 @@
                                 <table id="seatList" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Name</th>
                                             <th>Block No</th>
                                             <th>Room No</th>
@@ -116,7 +117,8 @@
                                     <tbody>
                                         @foreach($seataloc as $data)
                                     	<tr>
-                                    		<td>{{$data->name}}</td>
+                                    		<td>U00{{$data->userId}}</td>
+                                            <td>{{$data->name}}</td>
                                     		<td>{{$data->blockNo}}</td>
                                     		<td>{{$data->roomNo}}</td>
                                     		<td>{{$data->monthlyRent}}</td>

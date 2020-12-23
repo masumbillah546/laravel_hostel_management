@@ -113,8 +113,8 @@
                                     	@foreach($datas as $data)
                                     	<tr>
                                     		<td>{{ $data->roomNo }}</td>
-                                    		<td>{{ $data->noOfSeat }}</td>
                                             <td>{{ $data->noOfSeat }}</td>
+                                    		<td>{{ $data->available }}</td>
                                     		<td>{{ $data->blockId }}</td>
                                     		<td>{{ $data->description }}</td>
                                     		

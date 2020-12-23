@@ -9,6 +9,9 @@
             </div>
             <!-- /.col-lg-12 -->
         </div>
+         @if(session('success'))
+        <div class="alert alert-success"><strong>{{session('success')}}</strong></div>
+        @endif
 
         <div class="row">
             <div class="col-lg-12">
@@ -20,20 +23,23 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form name="mealrate" action="mealrate.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
+                                <form name="mealrate" action="/mealrate/update"  accept-charset="utf-8" method="POST" enctype="multipart/form-data">
+                                    @csrf
 
 
                                     <div class="row">
                                         <div class="col-lg-12">
-
-
+                                            @php 
+                                             $rate = DB::table('mealrate')->get();
+                                            @endphp
+                                            @foreach($rate as $r)
                                             <div class="col-lg-4">
                                                 <div class="form-group ">
                                                     <label>Rate</label>
                                                     <div class="input-group">
 
                                                         <span class="input-group-addon"><i class="fa fa-money"></i> </span>
-                                                        <input type="text" placeholder="Meal Rate" class="form-control"  value=" echo $GLOBALS['rate'];" name="rate" required>
+                                                        <input type="text" placeholder="Meal Rate" class="form-control"  value="{{$r->rate}}" name="rate" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -43,11 +49,12 @@
                                                     <div class="input-group">
 
                                                         <span class="input-group-addon"><i class="fa fa-info"></i> </span>
-                                                        <textarea rows="1" placeholder="Note" class="form-control" name="note" required> echo $GLOBALS['note'];</textarea>
+                                                        <textarea rows="1" placeholder="Note" class="form-control" name="note" required>{{$r->note}}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        @endforeach
                                     </div>
 
 

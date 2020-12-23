@@ -24,6 +24,7 @@ class RoomController extends Controller
     	$data->roomNo = $request->roomNo;
     	$data->blockId = $request->blockId;
     	$data->noOfSeat = $request->noOfSeat;
+        $data->available = $request->noOfSeat;
     	$data->description = $request->description;
     	$data->isActive = "Y";
 

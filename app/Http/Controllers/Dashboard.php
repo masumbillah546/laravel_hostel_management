@@ -27,7 +27,7 @@ class Dashboard extends Controller
     	$st_count=$st->count();
     	$data = Room::all();
     	$count =$data->count();
-    	$total =$data->sum('noOfSeat');
+    	$total =$data->sum('available');
     	return view('backend.admin.dashboard' , compact('data','count','total','st_count','notices','employee','meals'));
     }
 

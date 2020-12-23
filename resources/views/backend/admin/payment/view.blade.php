@@ -33,8 +33,9 @@
                                     <div class="form-group">
                                         <label>Student Name</label>
                                         <select class="form-control" name="userId" required="">
+                                            <option value="">Select Student</option>
                                         @foreach($st_info as $student)
-                                             <option value="{{$student->userId}}">{{$student->name}}</option>
+                                             <option value="{{$student->userId}}">U00{{$student->userId}} - {{$student->name}}</option>
                                         @endforeach
 
                                         </select>
@@ -134,15 +135,16 @@
                          </form>
                         </div>
 
-                        <div class="row" style="@if(!$stp->count())display: none;@else display: ; @endif">
+                        <div class="row" style="">
                         <div class="col-lg-12">
                             <hr />
                             <div class="table-responsive">
-                                @if($stp->count()>0)
+                                @if($stp->count())
                                 <table id="paymentList" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
 
+                                            <th>ID</th>
                                             <th>Name</th>
                                              <th>Payment Date</th>
                                              <th>Paid By</th>
@@ -156,7 +158,8 @@
                                     <tbody>
                                         @foreach($stp as $payment)
                                     	<tr>
-                                    		<td>{{$payment->name}}</td>
+                                    		<td>U00{{$payment->userId}}</td>
+                                            <td>{{$payment->name}}</td>
                                     		
                                             <td>{{date("d/m/Y",strtotime($payment->transDate))}}</td>
                                     		<td>{{$payment->paymentBy}}</td>
@@ -174,7 +177,10 @@
                             </div>
                           
                            @else
+                          
+                           @if(isset($_GET['btnUpdate']))
                             <h1 class='text-warning'>Payment Data Not Found!!!</h1>
+                            @endif
                             @endif  
                             
                         </div>

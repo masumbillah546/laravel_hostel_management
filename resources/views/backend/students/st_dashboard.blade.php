@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="col-lg-6">
-            <h1 class="page-header titlehms"><i class="fa fa-hand-o-right"></i>Dashboard<i class="fa fa-hand-o-left"></i></h1>
+            <h1 class="page-header titlehms"><i class="fa fa-hand-o-right"></i>Student Dashboard<i class="fa fa-hand-o-left"></i></h1>
             </div>
             <div class="col-lg-6">
             <form action="" accept-charset="utf-8" method="post" enctype="multipart/form-data">

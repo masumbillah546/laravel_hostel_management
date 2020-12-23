@@ -5,7 +5,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header titlehms"><i class="fa fa-hand-o-right"></i>Dashboard<i class="fa fa-hand-o-left"></i></h1>
+                <h1 class="page-header titlehms"><i class="fa fa-hand-o-right"></i>Admin Dashboard<i class="fa fa-hand-o-left"></i></h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>

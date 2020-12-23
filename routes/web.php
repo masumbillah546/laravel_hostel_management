@@ -84,8 +84,10 @@ Route::get('/setting/adduser','SettingController@index');
 
 //Setup
 Route::get('/setup/fees', 'SetupController@fees');
+Route::post('/mealrate/update', 'SetupController@update');
 Route::get('/setup/mealrate', 'SetupController@mealRate');
 Route::get('/setup/timeset', 'SetupController@timeset');
+Route::post('/time/update', 'SetupController@timeUpdate');
 Route::get('/setup/block', 'SetupController@block');
 Route::get('/admin/room', 'RoomController@index');
 Route::post('/room/add', 'RoomController@add');
