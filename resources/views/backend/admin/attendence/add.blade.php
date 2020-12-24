@@ -38,7 +38,7 @@
                                         <div class="input-group date" id='dp1'>
 
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i> </span>
-                                            <input type="text" placeholder="Attend Date" class="form-control datepicker" name="date" required  data-date-format="yyyy/mm/dd">
+                                            <input type="text" placeholder="Attend Date" class="form-control datepicker" name="date" autocomplete="off" required  data-date-format="yyyy/mm/dd">
                                         </div>
                                     </div>
                                 </div>

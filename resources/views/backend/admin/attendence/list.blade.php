@@ -116,6 +116,7 @@
                                     <thead>
                                         <tr>
 
+                                            <th>ID</th>
                                             <th>Name</th>
                                              <th>Attend Date</th>
                                              <th>Is Absence</th>
@@ -128,6 +129,7 @@
                                     <tbody>
                                         @foreach($att as $data)
                                         <tr>
+                                            <td>U00{{$data->userId}}</td>
                                             <td>{{$data->name}}</td>
                                             <td>{{$data->date}}</td>
                                             <td>{{$data->isAbsence}}</td>
