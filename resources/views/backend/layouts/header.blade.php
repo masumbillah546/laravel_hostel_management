@@ -253,9 +253,9 @@
 
                         <a href="#"><i class="fa fa-gears fa-fw"></i>Setup<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li>
+                            <!-- <li>
                                 <a href="/setup/fees">Fees</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="/setup/mealrate">Meal Rate</a>
                             </li>

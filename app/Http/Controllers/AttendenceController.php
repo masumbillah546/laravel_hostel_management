@@ -40,13 +40,21 @@ class AttendenceController extends Controller
      */
     public function store(Request $request)
     {
-            DB::insert('insert into attendence (userId, date,isAbsence,isLeave,remark) values (?, ?,?,?,?)', [$request->userId, $request->date,$request->isAbsence,$request->isLeave,$request->remark]);
+         $date=date('Y/m/d');
+          $att = DB::table('attendence')->where('userId',$request->userId)->where('date', $date)->get();
+           if(!count($att)>0){
+            DB::insert('insert into attendence (userId, date,isAbsence,isLeave,remark) values (?, ?,?,?,?)', [$request->userId,$date,$request->isAbsence,$request->isLeave,$request->remark]);
+             $request->session()->flash('success', 'Attendence added successfully!');
+             return back();
+        }
+        $request->session()->flash('ns', 'Attendence alreday added!');
          return back();
          // return $request;
     }
 
     public function show(Request $request)
     {
+       // $date=date('Y/m/d');
         $st_info = DB::table('studentinfo')->get();
         $att = DB::table('attendence')
         ->join('studentinfo', 'attendence.userId', '=', 'studentinfo.userId')

@@ -53,10 +53,13 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                @foreach($stp as $payment)
-                 <p><strong>Student ID:</strong> U00{{$payment->userId}}</p>
-                 <p><strong>Student Name:</strong> {{$payment->name}}</p>
-                   @endforeach
+                    @if(session('uid'))
+                 <p><strong>Student ID:</strong> U00{{session('uid')}}</p>
+                 <p><strong>Student Name:</strong> {{session('uname')}}</p>
+                 @endif
+                 <p><strong>Student ID:</strong> U00{{session('userId')}}</p>
+                 <p><strong>Student Name:</strong> {{session('name')}}</p>
+              
                 
               
                 <!-- /.panel-heading -->

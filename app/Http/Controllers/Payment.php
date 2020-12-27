@@ -112,6 +112,8 @@ class Payment extends Controller
          $stp = DB::table('stdpayment')
         ->join('studentinfo', 'stdpayment.userId', '=', 'studentinfo.userId')
             ->select('stdpayment.*', 'studentinfo.name', 'stdpayment.transDate','stdpayment.paymentBy','stdpayment.transNo','stdpayment.amount','stdpayment.remark')->where('stdpayment.userId', $student->userId)->get();
+             //$request->session()->flash('uid', $student->userId); 
+             //$request->session()->flash('uname', $student->name); 
         $pdf=PDF::loadview('backend.students.payment.pdf',compact('stp') );
         $date=date('d/m/Y');
 

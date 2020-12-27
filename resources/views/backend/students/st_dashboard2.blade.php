@@ -6,28 +6,56 @@
             <div class="col-lg-6">
             <h1 class="page-header titlehms"><i class="fa fa-hand-o-right"></i>Student Dashboard<i class="fa fa-hand-o-left"></i></h1>
             </div>
-           <!--  <div class="col-lg-6">
+            <div class="col-lg-6">
             <form action="" accept-charset="utf-8" method="post" enctype="multipart/form-data">
                 <button class="btn btn-success pull-right margin-to-5" type="submit" name="btnAttend"><i class="fa fa-2x fa-check"></i>Attendence</button>
             </form>
-                </div> -->
+                </div>
         </div>
         <!-- /.col-lg-12 -->
     </div>
     <div class="row">
-        
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-money fa-4x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"> {{$deposit->sum('amount')}}</div>
+                            <div>Current Deposit</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-maxcdn fa-4x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"> {{$meals->sum('noOfMeal')}}</div>
+                            <div>Today's Meal</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-red">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-xs-7">
+                        <div class="col-xs-3">
                             <i class="fa fa-maxcdn fa-4x"></i>
-                            <div style="border: 1px solid black;">Today's Meal: {{$meals->sum('noOfMeal')}}</div>
                         </div>
-
-                        <div class="col-xs-5 text-right">
-
+                        <div class="col-xs-9 text-right">
                             <div class="huge">{{$mealst->sum('noOfMeal')}}</div>
                             <div>Total Meal</div>
                         </div>
@@ -36,7 +64,6 @@
 
             </div>
         </div>
-
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-yellow">
                 <div class="panel-heading">
@@ -56,41 +83,6 @@
 
             </div>
         </div>
-
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-money fa-4x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge"> {{$deposit->sum('amount')}}</div>
-                            <div>Current Deposit</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-green">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-maxcdn fa-4x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge"> {{$meals->sum('noOfMeal')}}</div>
-                            <div>Today's Meal</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        
     </div>
     <div class="row">
         <div class="col-lg-6">

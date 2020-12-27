@@ -7,6 +7,13 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
+      @if(session('success'))
+        <div class="alert alert-success"><strong>{{session('success')}}</strong></div>
+        @endif
+
+        @if(session('ns'))
+        <div class="alert alert-warning"><strong>{{session('ns')}}</strong></div>
+        @endif
 
     <div class="row">
         <div class="col-lg-12">
@@ -38,7 +45,7 @@
                                         <div class="input-group date" id='dp1'>
 
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i> </span>
-                                            <input type="text" placeholder="Attend Date" class="form-control datepicker" name="date" autocomplete="off" required  data-date-format="yyyy/mm/dd">
+                                            <input disabled="" type="text" placeholder="Attend Date" class="form-control datepicker" name="date" autocomplete="off" required  data-date-format="yyyy/mm/dd">
                                         </div>
                                     </div>
                                 </div>

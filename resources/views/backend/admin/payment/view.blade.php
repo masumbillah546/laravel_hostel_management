@@ -45,6 +45,7 @@
                                      
                                       @if(session('uid')==$student->userId)
                                              <option selected=""  value="{{$student->userId}}">U00{{$student->userId}} - {{$student->name}}</option>
+                                            
                                     @else
                                     <option value="{{$student->userId}}">U00{{$student->userId}} - {{$student->name}}</option>
                                     @endif
