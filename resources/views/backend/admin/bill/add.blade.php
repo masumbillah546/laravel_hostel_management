@@ -20,7 +20,7 @@
                     <form name="bill" action="/bill/store"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="row">
+                       <!--  <div class="row">
                             <div class="col-lg-12">
                                 <div class="col-lg-4">
                                     <div class="form-group">
@@ -35,7 +35,7 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                         <div class="col-lg-12">
                             <div class="col-lg-8"></div>

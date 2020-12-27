@@ -141,12 +141,11 @@ class SdashboardController extends Controller
             return redirect('/login2');
         }
 
-        $billing = DB::table('billing')
-            ->join('studentinfo', 'billing.billTo', '=', 'studentinfo.userId')
-            ->select('billing.*', 'studentinfo.name', 'billing.amount','billing.billingDate')->where('billing.billTo', $user)
-            ->get();
+        $billing = DB::table('billing')->get();
+            $amount = $billing->sum('amount');
        
-        return view('backend.students.bill.view', compact('billing'));
+       
+        return view('backend.students.bill.view', compact('billing','amount'));
     }
 
      public function add_att($student)

@@ -53,8 +53,10 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                 <p><strong>Student ID:</strong> {{session('userId')}}</p>
-                 <p><strong>Student Name:</strong> {{session('name')}}</p>
+                @foreach($stp as $payment)
+                 <p><strong>Student ID:</strong> U00{{$payment->userId}}</p>
+                 <p><strong>Student Name:</strong> {{$payment->name}}</p>
+                   @endforeach
                 
               
                 <!-- /.panel-heading -->

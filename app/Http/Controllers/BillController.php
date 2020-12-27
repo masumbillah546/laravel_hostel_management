@@ -16,11 +16,13 @@ class BillController extends Controller
     {
         
         $billing = DB::table('billing')
-            ->join('studentinfo', 'billing.billTo', '=', 'studentinfo.userId')
-            ->select('billing.*', 'studentinfo.name', 'billing.amount','billing.billingDate')
+            // ->join('studentinfo', 'billing.billTo', '=', 'studentinfo.userId')
+            // ->select('billing.*', 'studentinfo.name', 'billing.amount','billing.billingDate')
             ->get();
+
+          $amount = $billing->sum('amount');
        
-        return view('backend.admin.bill.view', compact('billing'));
+        return view('backend.admin.bill.view', compact('billing','amount'));
     }
 
     /**
@@ -42,12 +44,12 @@ class BillController extends Controller
      */
     public function store(Request $request)
     { 
-  
+        $date=date("Y/m/d");
     	if(count($request->type) > 0){
     		foreach($request->type as $key=>$value){
 
     		
-    		DB::insert('insert into billing (type, amount,billTo,billingDate) values (?, ?,?,?)', [$request->type[$key], $request->amount[$key],$request->billTo,'12/10/20']);
+    		DB::insert('insert into billing (type, amount,billTo,billingDate) values (?, ?,?,?)', [$request->type[$key], $request->amount[$key],"$request->billTo", $date]);
     		}
 			
     	}

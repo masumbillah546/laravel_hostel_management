@@ -29,9 +29,9 @@
                                         <tr>
 
                                             <th>Bill Id</th>
-                                             <th>Name</th>
-                                            <th>Amount</th>
+                                            <!--  <th>Name</th> -->
                                             <th>Type</th>
+                                            <th>Amount</th>
 
                                              <th>Bill Date</th>
                                             
@@ -40,16 +40,20 @@
                                     <tbody>
                                         @foreach($billing as $data)
                                     	<tr>
-                                    		<td>{{$data->billTo}}</td>
-                                    		<td>{{$data->name}}</td>
-                                    		<td>{{$data->amount}}</td>
+                                    		<td>{{$data->billId}}</td>
                                             <td>{{$data->type}}</td>
+                                    		<td>{{$data->amount}}</td>
                                     		<td>{{$data->billingDate}}</td>
                                     		
                                     	</tr>
                                         @endforeach
+
                                     </tbody>
                                 </table>
+                                 <div class="col-lg-4"></div>
+                                 <div class="col-lg-4"><h3>Total: {{$amount}}</h3></div>
+                                 <div class="col-lg-4"></div>
+                               
                         </div>
                     </div>
 

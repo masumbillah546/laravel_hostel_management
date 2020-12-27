@@ -56,6 +56,7 @@ Route::post('/payment/store','Payment@store');
 Route::get('/payment/approval','Payment@approval');
 // Route::get('/payment/view','Payment@index');
 Route::get('/payment/view','Payment@show');
+Route::get('/payment/pdf','Payment@pdf');
 Route::get('/payment/{serial}','Payment@update');
 
 //Notice
@@ -176,3 +177,13 @@ Route::get('/login2','MainController@index');
 Route::post('/lin','MainController@login');
 Route::post('/lout','MainController@logout');
 
+
+
+
+//Ajax
+Route::get('/ajax', 'AjaxController@index');
+Route::post('/ajax/post', 'AjaxController@store');
+Route::get('/ajaxcrud', 'AjaxController@index2');
+Route::post('/ajaxcrud/store', 'AjaxController@store2');
+Route::get('/ajaxcrud/{id}/edit', 'AjaxController@edit');
+Route::get('/ajaxcrud/{id}', 'AjaxController@destroy');

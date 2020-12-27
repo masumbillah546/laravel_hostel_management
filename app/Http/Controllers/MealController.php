@@ -28,6 +28,8 @@ class MealController extends Controller
      */
     public function add()
     {
+        //  $st_info = DB::table('studentinfo')->get();
+        // return view('backend.admin.meal.add', compact('st_info'));
          $st_info = DB::table('studentinfo')->get();
         return view('backend.admin.meal.add', compact('st_info'));
     }
@@ -42,7 +44,30 @@ class MealController extends Controller
     {   
         // $date2=time();
         $date=date("Y/m/d");
-          DB::insert('insert into meal (userId, noOfMeal,date) values (?, ?,?)', [$request->userId, $request->noOfMeal,$date]);
-         return back();
+        $meal = DB::table('meal')->where('date', $date)->get();
+        if(count($request->noOfMeal) > 0){
+
+
+
+            foreach($request->noOfMeal as $key=>$value){
+
+                if(count($meal)>0){
+                // echo  $m = $request->noOfMeal[$key]."<br>";
+                // echo  $mn = $request->userId[$key];
+                    DB::update('update meal set noOfMeal = '.$value.' where userId = ?', [$request->userId[$key]]);
+                }else{
+
+                 DB::insert('insert into meal (userId, noOfMeal,date) values (?, ?,?)', [$request->userId[$key], $request->noOfMeal[$key]?$request->noOfMeal[$key]:0,$date]);
+                }
+            
+            }
+            
+
+
+        }
+        
+        // $date=date("Y/m/d");
+        //   DB::insert('insert into meal (userId, noOfMeal,date) values (?, ?,?)', [$request->userId, $request->noOfMeal,$date]);
+          return back();
     }
 }

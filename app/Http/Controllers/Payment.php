@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use \PDF;
 class Payment extends Controller
 {
      /**
@@ -102,8 +102,22 @@ class Payment extends Controller
         $stp = DB::table('stdpayment')
         ->join('studentinfo', 'stdpayment.userId', '=', 'studentinfo.userId')
             ->select('stdpayment.*', 'studentinfo.name', 'stdpayment.transDate','stdpayment.paymentBy','stdpayment.transNo','stdpayment.amount','stdpayment.remark')->where('stdpayment.userId', $request->userId)->get();
-        
+         $request->session()->flash('uid', $request->userId);
        return view('backend.admin.payment.view', compact('st_info','stp'));
     }
+
+    public function pdf(Request $student)
+    {
+        
+         $stp = DB::table('stdpayment')
+        ->join('studentinfo', 'stdpayment.userId', '=', 'studentinfo.userId')
+            ->select('stdpayment.*', 'studentinfo.name', 'stdpayment.transDate','stdpayment.paymentBy','stdpayment.transNo','stdpayment.amount','stdpayment.remark')->where('stdpayment.userId', $student->userId)->get();
+        $pdf=PDF::loadview('backend.students.payment.pdf',compact('stp') );
+        $date=date('d/m/Y');
+
+         return $pdf->stream($date.'_payment.pdf');
+         // return $pdf->download('payment.pdf');
+    }
+
 
 }

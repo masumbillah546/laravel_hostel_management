@@ -24,12 +24,12 @@
                         <div class="col-lg-12">
                             <hr />
                             <div class="table-responsive">
-                                <table id="billList" class="table table-striped table-bordered table-hover">
+                                <table id="" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
 
                                             <th>Bill Id</th>
-                                             <th>Name</th>
+                                             <!-- <th>Name</th> -->
                                             <th>Amount</th>
                                             <th>Type</th>
 
@@ -40,8 +40,9 @@
                                     <tbody>
                                         @foreach($billing as $data)
                                     	<tr>
-                                    		<td>{{$data->billTo}}</td>
-                                    		<td>{{$data->name}}</td>
+                                    		
+                                            <td>{{$data->billId}}</td>
+                                    		
                                     		<td>{{$data->amount}}</td>
                                             <td>{{$data->type}}</td>
                                     		<td>{{$data->billingDate}}</td>

@@ -22,10 +22,17 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <form name="apyment" action="view.php"  accept-charset="utf-8" method="post" enctype="multipart/form-data">
+                    <form name="apyment" action="/payment/pdf"  accept-charset="utf-8" method="POST" enctype="multipart/form-data">
+                         @csrf
+                         <input type="hidden" name="id" value="{{session('uid')}}">
                         <button type="submit" class="btn btn-info" style="display: none;" name="btnPrint" ><i class="fa fa-print"></i>Print</button>
                     </form>
+                    @if(session('uid'))
+                    <form name="apyment" action="/payment/pdf"  accept-charset="utf-8" method="GET" enctype="multipart/form-data">
+                     @else
                     <form name="apyment" action="/payment/view"  accept-charset="utf-8" method="GET" enctype="multipart/form-data">
+                    @endif
+
                         @csrf
                         <div class="row" id="divview" style="display: echo $display;">
                             <div class="col-lg-12">
@@ -35,7 +42,13 @@
                                         <select class="form-control" name="userId" required="">
                                             <option value="">Select Student</option>
                                         @foreach($st_info as $student)
-                                             <option value="{{$student->userId}}">U00{{$student->userId}} - {{$student->name}}</option>
+                                     
+                                      @if(session('uid')==$student->userId)
+                                             <option selected=""  value="{{$student->userId}}">U00{{$student->userId}} - {{$student->name}}</option>
+                                    @else
+                                    <option value="{{$student->userId}}">U00{{$student->userId}} - {{$student->name}}</option>
+                                    @endif
+                               
                                         @endforeach
 
                                         </select>
@@ -45,8 +58,11 @@
                                     <div class="form-group">
                                         <label>&nbsp;</label>
                                         <div>
-                                            <button type="submit" class="btn btn-success" name="btnUpdate" ><i class="fa fa-check-circle-o"></i>View</button>
+                                            @if(session('uid'))
                                             <button type="submit" class="btn btn-info" style="display: echo $disBtnPrint;;" name="btnPrint" ><i class="fa fa-print"></i>Print</button>
+                                            @else
+                                            <button type="submit" class="btn btn-success" name="btnUpdate" ><i class="fa fa-check-circle-o"></i>View</button>
+                                            @endif
                                         </div>
 
                                     </div>
