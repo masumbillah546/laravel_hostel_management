@@ -35,7 +35,8 @@ class CostController extends Controller
      */
     public function store(Request $request)
     {
-        DB::insert('insert into cost (type, amount,date,description) values (?, ?,?,?)', [$request->type, $request->amount,'12/10/20',$request->description]);
+        $date=date('Y/m/d');
+        DB::insert('insert into cost (type, amount,date,description) values (?, ?,?,?)', [$request->type, $request->amount,$date,$request->description]);
         return $this->index();
     }
 

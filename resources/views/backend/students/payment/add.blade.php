@@ -46,7 +46,7 @@
                                         <div class="input-group date" id='dp1'>
 
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i> </span>
-                                            <input autocomplete="off" type="text" placeholder="Payment Date" class="form-control datepicker" name="transDate" required  data-date-format="yyyy/mm/dd">
+                                            <input disabled="" autocomplete="off" type="text" placeholder="Payment Date" class="form-control datepicker" name="transDate" required  data-date-format="yyyy/mm/dd">
                                         </div>
                                     </div>
                                 </div>

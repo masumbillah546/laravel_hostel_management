@@ -38,8 +38,8 @@ class Payment extends Controller
     public function store(Request $request)
     {
         
-        
-        DB::insert('insert into stdpayment (userId, paymentBy,transNo,amount,transDate,remark) values (?, ?,?,?,?, ?)', [$request->userId, $request->paymentBy,$request->transNo,$request->amount,$request->transDate,$request->remark]);
+         $date=date('Y/m/d');
+        DB::insert('insert into stdpayment (userId, paymentBy,transNo,amount,transDate,remark) values (?, ?,?,?,?, ?)', [$request->userId, $request->paymentBy,$request->transNo,$request->amount,$date,$request->remark]);
          // return view('backend.admin.payment.add');
             $request->session()->flash('success', 'Payment added successfully!');
          return back();

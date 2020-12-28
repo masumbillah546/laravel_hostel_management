@@ -102,76 +102,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 panel panel-info">
-                <h2 style="color: #DD0C3D;font-weight: bold;">Monthly Expenses & Income</h2>
-                <table class="table table-bordered">
-                    <thead class="bg-info">
-                        <tr>
-                            <th>Title</th>
-                            <th>Expenses</th>
-                            <th>Income</th>
-                        </tr>
-                    </thead>
-                    <tbody >
-                        
-                         <tr>
-                            <th>Hostel Seat Rent</th>
-                            <td></td>
-                            <td>{{$seataloc->sum('monthlyRent')}}</td>
-                        </tr>
-                         <tr>
-                            <th>Hostel Equipment</th>
-                            <td>{{$equipment->sum('amount')}}</td>
-                            <td></td>
-                        </tr>
-                         <tr>
-                            <th>Employee Salary</th>
-                            <td>{{$salary->sum('amount')}}</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>Student Meal</th>
-                            <td>{{$cost->sum('amount')}}</td>
-                            @foreach($mealrate as $data)
-                            <td>{{$tmeals->sum('noOfMeal')*$data->rate}}</td>
-                            @endforeach
-                        </tr>
-                        
-                         <tr>
-                            <th>Service</th>
-                            <td>{{$service->sum('amount')}}</td>
-                            <td>{{$billing->sum('amount')*$st_count}}</td>
-                        </tr>
-                         <tr class="bg-info">
-                            <th>Totals</th>
-                            <th>{{($equipment->sum('amount'))+($salary->sum('amount'))+($cost->sum('amount'))+($service->sum('amount'))}}</th>
-                            <th>{{($seataloc->sum('monthlyRent'))+($tmeals->sum('noOfMeal')*$mealrate->sum('rate'))+($billing->sum('amount')*$st_count)}}</th>
-                        </tr>
-                    </tbody>
-                </table><hr>
-            </div>
-            <div class="col-lg-6">
-
-                        <div class="custom-calendar-wrap">
-                            <div id="custom-inner" class="custom-inner">
-                                <div class="custom-header clearfix">
-                                    <nav>
-                                        <span id="custom-prev" class="custom-prev"></span>
-                                        <span id="custom-next" class="custom-next"></span>
-                                    </nav>
-                                    <h2 id="custom-month" class="custom-month"></h2>
-                                    <h2 id="custom-year" class="custom-year"></h2>
-                                </div>
-                                <div id="calendar" class="fc-calendar-container"></div>
-
-                            </div>
-                        </div>
-
-
-                </div>
-        </div>
-
-        <div class="row">
             <div class="col-lg-6">
                 <div class="panel panel-info">
                     <div class="panel-heading">
@@ -211,10 +141,24 @@
             </div>
             <div class="col-lg-6">
 
+                        <div class="custom-calendar-wrap">
+                            <div id="custom-inner" class="custom-inner">
+                                <div class="custom-header clearfix">
+                                    <nav>
+                                        <span id="custom-prev" class="custom-prev"></span>
+                                        <span id="custom-next" class="custom-next"></span>
+                                    </nav>
+                                    <h2 id="custom-month" class="custom-month"></h2>
+                                    <h2 id="custom-year" class="custom-year"></h2>
+                                </div>
+                                <div id="calendar" class="fc-calendar-container"></div>
 
-            </div>
+                            </div>
+                        </div>
+
+
+                </div>
         </div>
-
     </div>
     <!-- /#page-wrapper -->
 

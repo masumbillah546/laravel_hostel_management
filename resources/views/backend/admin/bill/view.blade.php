@@ -46,7 +46,7 @@
                                     		<td>{{$data->amount}}</td>
                                             <td>{{$data->type}}</td>
                                     		<td>{{$data->billingDate}}</td>
-                                    		<td><a title='Delete' class='btn btn-danger btn-circle' href=''><i class='fa fa-trash-o'></i></a></td>
+                                    		<td><a title='Edit' class='btn btn-success btn-circle' href=''><i class='fa fa-trash-o'></i></a>&nbsp<a title='Delete' class='btn btn-danger btn-circle' href=''><i class='fa fa-trash-o'></i></a></td>
                                     	</tr>
                                         @endforeach
                                     </tbody>

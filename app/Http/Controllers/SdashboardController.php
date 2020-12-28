@@ -38,6 +38,7 @@ class SdashboardController extends Controller
 
 
          $date=date('Y/m/d');
+         $month = date('m');
          $user=session('userId');
 
          if(!isset($user)){
@@ -49,9 +50,13 @@ class SdashboardController extends Controller
         $mealrate = DB::table('mealrate')->where('id', 1)->get();
       
         $meals = DB::table('meal')->where('date', $date)->where('userId',$user )->get();
-        $mealst = DB::table('meal')->where('userId', $user)->get();
+        $mealst = DB::table('meal')->where('userId', $user)->whereMonth('date','=', $month)->get();
 
-        return view('backend.students.st_dashboard', compact('notices','meals','mealst','mealrate','deposit'));
+        $stdpayment = DB::table('stdpayment')->where('userId', $user)->where('isApprove','Yes')->get();
+        $seataloc = DB::table('seataloc')->where('userId', $user)->get();
+        $billing = DB::table('billing')->get();
+
+        return view('backend.students.st_dashboard', compact('notices','meals','mealst','mealrate','deposit','stdpayment','seataloc','billing'));
     }
 
      public function profile_view($student='U008')
@@ -92,8 +97,8 @@ class SdashboardController extends Controller
     public function store(Request $request)
     {
         
-        
-        DB::insert('insert into stdpayment (userId, paymentBy,transNo,amount,transDate,remark) values (?, ?,?,?,?, ?)', [$request->userId, $request->paymentBy,$request->transNo,$request->amount,$request->transDate,$request->remark]);
+        $date=date('Y/m/d');
+        DB::insert('insert into stdpayment (userId, paymentBy,transNo,amount,transDate,remark) values (?, ?,?,?,?, ?)', [$request->userId, $request->paymentBy,$request->transNo,$request->amount, $date,$request->remark]);
          // return view('backend.admin.payment.add');
             $request->session()->flash('success', 'Payment added successfully!');
          return back();

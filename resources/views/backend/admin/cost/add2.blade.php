@@ -25,14 +25,11 @@
                                 <div class="col-lg-4">
                                     <div class="form-group ">
                                         <label>Cost Type</label>
-                                        <select class="form-control" name="type" required="">
-                                            <option value="Bazar">Bazar</option>
-                                            <option value="Equipment">Equipment</option>
-                                            <option value="Service">Service</option>
-                                         
-                                             <option value="Others">Others</option>
-                                            
-                                        </select>
+                                        <div class="input-group">
+
+                                            <span class="input-group-addon"><i class="fa fa-user"></i> </span>
+                                            <input type="text" placeholder="Cost Type" class="form-control" name="type" required>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">

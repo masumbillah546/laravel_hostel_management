@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-xs-7">
                             <i class="fa fa-maxcdn fa-4x"></i>
-                            <div style="border: 1px solid black;">Today's Meal: {{$meals->sum('noOfMeal')}}</div>
+                            <div style="">Today's Meal: {{$meals->sum('noOfMeal')}}</div>
                         </div>
 
                         <div class="col-xs-5 text-right">
@@ -64,9 +64,19 @@
                         <div class="col-xs-3">
                             <i class="fa fa-money fa-4x"></i>
                         </div>
+                        @php
+                           $p= $stdpayment->sum('amount');
+                           $t= $mealst->sum('noOfMeal')*$data->rate + $billing->sum('amount') + $seataloc->sum('monthlyRent');
+
+
+                        @endphp
                         <div class="col-xs-9 text-right">
-                            <div class="huge"> {{$deposit->sum('amount')}}</div>
+                            <div class="huge"> {{$p-$t}}</div>
+                            @if($p-$t>=0)
                             <div>Current Deposit</div>
+                            @else
+                              <div>Current Due</div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -78,12 +88,24 @@
             <div class="panel panel-green">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-maxcdn fa-4x"></i>
+                        <div class="col-xs-7">
+                            <i class="fa fa-money fa-4x"></i>
+                            <div>
+                                <span class="">Seat Rent: {{$seataloc->sum('monthlyRent')}}</span><br>
+                           
+                            <span class="">Meal Cost: {{$mealst->sum('noOfMeal')*$data->rate}}</span><br>
+                            <span class="">Others Cost: {{$billing->sum('amount')}}</span>
+                            </div>
                         </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge"> {{$meals->sum('noOfMeal')}}</div>
-                            <div>Today's Meal</div>
+                        <div class="col-xs-5 text-right">
+
+                          <div class="huge">{{$mealst->sum('noOfMeal')*$data->rate + $billing->sum('amount') + $seataloc->sum('monthlyRent')}}</div>
+                            <div>Total Cost</div>
+                                
+                         
+                            
+                        
+                            
                         </div>
                     </div>
                 </div>
